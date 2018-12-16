@@ -24,7 +24,10 @@ namespace Notebar
     {
         private const int defaultPort = 1738;
 
+        private string[] DefaultIcons { get; set; }
+
         private string _imagePath;
+
 
         public string ImagePath
         {
@@ -39,14 +42,30 @@ namespace Notebar
             }
         }
 
-        private string[] DefaultIcons { get; set; }
+        private int _port;
+
+        public int Port
+        {
+            get => _port;
+            set
+            {
+                if (value == _port)
+                    return;
+
+                _port = value;
+                OnPropertyChanged();
+            }
+        }
 
         public DeskBand()
         {
             InitializeComponent();
             Options.MinHorizontalSize = new Size(20, 20);
             Options.MinVerticalSize = new Size(20, 20);
-            Options.ContextMenuItems = GetContextMenuItems();
+
+            Port = defaultPort;
+
+            Options.ContextMenuItems = GetContextMenuItems(Port);
 
             DefaultIcons = GetDefaultIcons();
             SetIcon("white");
@@ -61,7 +80,7 @@ namespace Notebar
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private List<DeskBandMenuItem> GetContextMenuItems()
+        private List<DeskBandMenuItem> GetContextMenuItems(int port)
         {
             var quitAction = new DeskBandMenuAction("Quit")
             {
@@ -73,7 +92,7 @@ namespace Notebar
                 new DeskBandMenuAction("Port")
                 {
                     Enabled = false,
-                    Text = $"UDP port: {defaultPort}"
+                    Text = $"UDP port: {port}"
                 },
                quitAction
             };
@@ -189,6 +208,11 @@ namespace Notebar
                     return reader.Cast<DictionaryEntry>().Select(entry => (string)entry.Key).ToArray();
                 }
             }
+        }
+
+        private void Quit(object sender, System.Windows.RoutedEventArgs e)
+        {
+            CloseDeskBand();
         }
     }
 }
