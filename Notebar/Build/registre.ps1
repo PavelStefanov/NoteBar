@@ -1,0 +1,1 @@
+﻿regasm /codebase ../bin/Debug/Notebar.dll
