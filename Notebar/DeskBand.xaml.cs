@@ -63,11 +63,20 @@ namespace Notebar
 
         private List<DeskBandMenuItem> GetContextMenuItems()
         {
-            return new List<DeskBandMenuItem>() { new DeskBandMenuAction("Port")
+            var quitAction = new DeskBandMenuAction("Quit")
+            {
+                Text = "Quit",
+            };
+            quitAction.Clicked += (sender, args) => CloseDeskBand();
+
+            return new List<DeskBandMenuItem>() {
+                new DeskBandMenuAction("Port")
                 {
                     Enabled = false,
                     Text = $"UDP port: {defaultPort}"
-                } };
+                },
+               quitAction
+            };
         }
 
         private void RunServer()
@@ -99,7 +108,7 @@ namespace Notebar
         {
             if (message == "quit")
             {
-                // TODO
+                CloseDeskBand();
             }
 
             SetIcon(message);
