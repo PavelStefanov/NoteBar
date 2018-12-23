@@ -1,0 +1,17 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Notebar.gRPC";
+
+package notebar;
+
+service NotebarService {
+  rpc AddIndicator(AddIndicatorRequest) returns (AddIndicatorResponse) {}
+}
+
+message AddIndicatorRequest {
+  uint32 port = 1;
+}
+
+message AddIndicatorResponse {
+ string result = 1;
+}

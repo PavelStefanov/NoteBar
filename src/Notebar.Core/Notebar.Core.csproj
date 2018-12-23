@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Icons\Resources\black%402x.png" />
+    <None Remove="Icons\Resources\black_alt%402x.png" />
+    <None Remove="Icons\Resources\blue%402x.png" />
+    <None Remove="Icons\Resources\cyan%402x.png" />
+    <None Remove="Icons\Resources\exclamation%402x.png" />
+    <None Remove="Icons\Resources\green%402x.png" />
+    <None Remove="Icons\Resources\orange%402x.png" />
+    <None Remove="Icons\Resources\purple%402x.png" />
+    <None Remove="Icons\Resources\question%402x.png" />
+    <None Remove="Icons\Resources\question_alt%402x.png" />
+    <None Remove="Icons\Resources\red%402x.png" />
+    <None Remove="Icons\Resources\white%402x.png" />
+    <None Remove="Icons\Resources\white_alt%402x.png" />
+    <None Remove="Icons\Resources\yellow%402x.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\Resources\black@2x.png" />
+    <EmbeddedResource Include="Icons\Resources\black_alt@2x.png" />
+    <EmbeddedResource Include="Icons\Resources\blue@2x.png" />
+    <EmbeddedResource Include="Icons\Resources\cyan@2x.png" />
+    <EmbeddedResource Include="Icons\Resources\exclamation@2x.png" />
+    <EmbeddedResource Include="Icons\Resources\green@2x.png" />
+    <EmbeddedResource Include="Icons\Resources\orange@2x.png" />
+    <EmbeddedResource Include="Icons\Resources\purple@2x.png" />
+    <EmbeddedResource Include="Icons\Resources\question@2x.png" />
+    <EmbeddedResource Include="Icons\Resources\question_alt@2x.png" />
+    <EmbeddedResource Include="Icons\Resources\red@2x.png" />
+    <EmbeddedResource Include="Icons\Resources\white@2x.png" />
+    <EmbeddedResource Include="Icons\Resources\white_alt@2x.png" />
+    <EmbeddedResource Include="Icons\Resources\yellow@2x.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.6.1" />
+    <PackageReference Include="Grpc.Core" Version="1.17.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Notebar.gRPC\Notebar.gRPC.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+  </ItemGroup>
+
+</Project>

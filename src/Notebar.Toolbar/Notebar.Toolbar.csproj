@@ -7,11 +7,13 @@
     <ProjectGuid>{F387C1F1-3096-4C05-BD50-C869247BDB43}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Notebar</RootNamespace>
-    <AssemblyName>Notebar</AssemblyName>
+    <RootNamespace>Notebar.Toolbar</RootNamespace>
+    <AssemblyName>Notebar.Toolbar</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,10 +45,16 @@
     <Reference Include="CSDeskBand.Wpf, Version=2.0.0.0, Culture=neutral, PublicKeyToken=66d19cfc65a1cc19, processorArchitecture=MSIL">
       <HintPath>..\packages\CSDeskBand.Wpf.2.1.0\lib\net461\CSDeskBand.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Grpc.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grpc.Core.1.17.1\lib\net45\Grpc.Core.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Interactive.Async, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Interactive.Async.3.1.1\lib\net46\System.Interactive.Async.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -60,9 +68,13 @@
     <Compile Include="DeskBand.xaml.cs">
       <DependentUpon>DeskBand.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Icon.xaml.cs">
+      <DependentUpon>Icon.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Build\registre.ps1" />
     <None Include="Build\unregistre.ps1" />
     <None Include="key.snk" />
@@ -73,22 +85,16 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Icon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icons\black%402x.png" />
-    <Resource Include="Icons\black_alt%402x.png" />
-    <Resource Include="Icons\blue%402x.png" />
-    <Resource Include="Icons\cyan%402x.png" />
-    <Resource Include="Icons\exclamation%402x.png" />
-    <Resource Include="Icons\green%402x.png" />
-    <Resource Include="Icons\orange%402x.png" />
-    <Resource Include="Icons\purple%402x.png" />
-    <Resource Include="Icons\question%402x.png" />
-    <Resource Include="Icons\question_alt%402x.png" />
-    <Resource Include="Icons\red%402x.png" />
-    <Resource Include="Icons\white%402x.png" />
-    <Resource Include="Icons\white_alt%402x.png" />
-    <Resource Include="Icons\yellow%402x.png" />
+    <ProjectReference Include="..\Notebar.gRPC\Notebar.gRPC.csproj">
+      <Project>{E4D6BB71-61CF-4224-B901-23828ABA6A61}</Project>
+      <Name>Notebar.gRPC</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
@@ -99,4 +105,11 @@
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
+  <Import Project="..\packages\Grpc.Core.1.17.1\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.1.17.1\build\net45\Grpc.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Grpc.Core.1.17.1\build\net45\Grpc.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grpc.Core.1.17.1\build\net45\Grpc.Core.targets'))" />
+  </Target>
 </Project>

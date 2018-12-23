@@ -1,5 +1,7 @@
 ﻿using CSDeskBand;
 using CSDeskBand.ContextMenu;
+using Grpc.Core;
+using Notebar.gRPC;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,19 +17,20 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Notebar
+namespace Notebar.Toolbar
 {
     [ComVisible(true)]
     [Guid("32da9796-4495-4157-9aac-d1d7564c4119")]
     [CSDeskBandRegistration(Name = "Notebar", ShowDeskBand = true)]
     public partial class DeskBand : INotifyPropertyChanged
     {
+        private readonly Server Server;
+
         private const int defaultPort = 1738;
 
         private string[] DefaultIcons { get; set; }
 
         private string _imagePath;
-
 
         public string ImagePath
         {
@@ -71,6 +74,7 @@ namespace Notebar
             SetIcon("white");
 
             RunServer();
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -213,6 +217,13 @@ namespace Notebar
         private void Quit(object sender, System.Windows.RoutedEventArgs e)
         {
             CloseDeskBand();
+            //Server.ShutdownAsync().Wait();
+        }
+
+        protected override void OnClose()
+        {
+            base.OnClose();
+            //Server.ShutdownAsync().Wait();
         }
     }
 }
