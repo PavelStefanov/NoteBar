@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notebar.gRPC", "Notebar.gRP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notebar.Wpf", "Notebar.Wpf\Notebar.Wpf.csproj", "{B099FE8F-F740-4850-A3D0-CBB2E2FD5EDB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notebar.Core", "Notebar.Core\Notebar.Core.csproj", "{81C59190-186E-4294-BE75-BFF555DA6E18}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notebar.Core", "Notebar.Core\Notebar.Core.csproj", "{77974F17-DC27-4DC9-9765-9617E3F799F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{B099FE8F-F740-4850-A3D0-CBB2E2FD5EDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B099FE8F-F740-4850-A3D0-CBB2E2FD5EDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B099FE8F-F740-4850-A3D0-CBB2E2FD5EDB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{81C59190-186E-4294-BE75-BFF555DA6E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{81C59190-186E-4294-BE75-BFF555DA6E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{81C59190-186E-4294-BE75-BFF555DA6E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{81C59190-186E-4294-BE75-BFF555DA6E18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77974F17-DC27-4DC9-9765-9617E3F799F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77974F17-DC27-4DC9-9765-9617E3F799F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77974F17-DC27-4DC9-9765-9617E3F799F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77974F17-DC27-4DC9-9765-9617E3F799F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

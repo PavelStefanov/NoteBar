@@ -3,7 +3,6 @@ using System.Collections;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Windows.Resources;
 
 namespace Notebar.Core.Icons
 {
@@ -56,31 +55,38 @@ namespace Notebar.Core.Icons
             return null;
         }
 
-        private string FindIconInResource(string name)
+        private string FindIconInResource(string icon)
         {
             var paths = new[]
             {
-                $"Notebar.Core.Icons.Resources.{name}_alt@2x.png",
-                $"Notebar.Core.Icons.Resources.{name}_alt.png",
-                $"Notebar.Core.Icons.Resources.{name}@2x.png",
-                $"Notebar.Core.Icons.Resources.{name}.png"
+                $"Icons/Resources/{icon}_alt@2x.png",
+                $"Icons/Resources/{icon}_alt.png",
+                $"Icons/Resources/{icon}@2x.png",
+                $"Icons/Resources/{icon}.png"
             };
 
             foreach (var path in paths)
             {
                 if (DefaultIcons.Any(v => v.Equals(path, StringComparison.InvariantCultureIgnoreCase)))
                 {
-                    return $"pack://application:,,,/Notebar.Core;component/Icons/Resources/{path}";
+                    return $"pack://application:,,,/Notebar.Core;component/{path}";
                 }
             }
 
             return null;
         }
 
-        private static string[] GetDefaultIcons()
+        private string[] GetDefaultIcons()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            return assembly.GetManifestResourceNames();
+            string resourcesName = $"{assembly.GetName().Name}.g.resources";
+            using (var stream = assembly.GetManifestResourceStream(resourcesName))
+            {
+                using (var reader = new System.Resources.ResourceReader(stream))
+                {
+                    return reader.Cast<DictionaryEntry>().Select(entry => (string)entry.Key).ToArray();
+                }
+            }
         }
     }
 }

@@ -108,16 +108,13 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Notebar.Core\Notebar.Core.csproj">
-      <Project>{81C59190-186E-4294-BE75-BFF555DA6E18}</Project>
+      <Project>{77974f17-dc27-4dc9-9765-9617e3f799f1}</Project>
       <Name>Notebar.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Notebar.gRPC\Notebar.gRPC.csproj">
       <Project>{e4d6bb71-61cf-4224-b901-23828aba6a61}</Project>
       <Name>Notebar.gRPC</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="red%402x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Grpc.Core.1.17.1\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.1.17.1\build\net45\Grpc.Core.targets')" />

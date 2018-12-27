@@ -16,10 +16,9 @@ namespace Notebar.Core.Udp
             GetMessageAction = getMessageAction;
         }
 
-        public UdpServer Start()
+        public void Start()
         {
             BeginReceive();
-            return this;
         }
 
         private void BeginReceive()
@@ -42,17 +41,15 @@ namespace Notebar.Core.Udp
                 return;
             }
 
-            BeginReceive();
+            if (UdpClient.Client != null)
+            {
+                BeginReceive();
+            }
         }
 
         public void ShutDown()
         {
             UdpClient.Close();
-        }
-
-        public static UdpServer Run(uint port, Action<string> getMessageAction)
-        {
-            return new UdpServer(port, getMessageAction).Start();
         }
     }
 }

@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows;
 using Notebar.Core.Icons;
 
 namespace Notebar.Core.Indicators
 {
     public class IndicatorsService
     {
-        private Dictionary<uint, Indicator> Indicators = new Dictionary<uint, Indicator>();
+        public readonly ObservableCollection<Indicator> Indicators = new ObservableCollection<Indicator>();
 
         public IconsService IconsService { get; }
 
@@ -17,7 +19,7 @@ namespace Notebar.Core.Indicators
 
         public string Add(uint port)
         {
-            if (Indicators.ContainsKey(port))
+            if (Indicators.Any(i => i.Port == port))
             {
                 return "Already started";
             }
@@ -32,15 +34,23 @@ namespace Notebar.Core.Indicators
                 return e.Message;
             }
 
-            Indicators.Add(port, indicator);
+            Indicators.Add(indicator);
 
             return null;
         }
 
-        private void Remove(Indicator indicator)
+        public void Remove(Indicator indicator)
         {
             indicator.Quit();
-            Indicators.Remove(indicator.Port);
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                Indicators.Remove(indicator);
+            });
+        }
+
+        public void ShutDownAll()
+        {
+            Indicators.ToList().ForEach(i => i.Quit());
         }
     }
 }
