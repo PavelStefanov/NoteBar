@@ -1,1 +1,1 @@
-﻿regasm /codebase ../bin/Debug/Notebar.dll
+﻿regasm /codebase ../bin/Debug/Notebar.Toolbar.dll

@@ -5,20 +5,30 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Notebar.Toolbar"
              xmlns:deskband="clr-namespace:CSDeskBand.Wpf;assembly=CSDeskBand.Wpf"
-             mc:Ignorable="d" 
-             DataContext="{Binding RelativeSource={RelativeSource Self}}">
-    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Image Source="{Binding ImagePath}" 
-               RenderOptions.BitmapScalingMode="HighQuality"
-               Height="20" Width="20" 
-               Margin="2,0,2,0"
-               HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Image.ContextMenu>
-                <ContextMenu >
-                    <MenuItem HeaderStringFormat="UDP port: {0}" Header="{Binding Port}" IsEnabled="False" />
-                    <MenuItem Header="Quit" Click="Quit" />
-                </ContextMenu>
-            </Image.ContextMenu>
-        </Image>
-    </WrapPanel>
+             mc:Ignorable="d" >
+    <StackPanel>
+        <ListBox x:Name="FieldsListBox">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding ImagePath}" 
+                           RenderOptions.BitmapScalingMode="HighQuality"
+                           Height="20" Width="20" 
+                           Margin="2,0,2,0"
+                           HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Image.ContextMenu>
+                            <ContextMenu >
+                                <MenuItem HeaderStringFormat="UDP port: {0}" Header="{Binding Port}" IsEnabled="False" />
+                                <MenuItem Header="Quit" Click="OnIndicatorQuit" />
+                            </ContextMenu>
+                        </Image.ContextMenu>
+                    </Image>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+    </StackPanel>
 </deskband:CSDeskBandWpf>

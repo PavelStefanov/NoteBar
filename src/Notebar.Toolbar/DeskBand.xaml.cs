@@ -1,21 +1,13 @@
 ﻿using CSDeskBand;
-using CSDeskBand.ContextMenu;
-using Grpc.Core;
-using Notebar.gRPC;
+using Notebar.Core.Grpc;
+using Notebar.Core.Icons;
+using Notebar.Core.Indicators;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using Size = CSDeskBand.Size;
 
 namespace Notebar.Toolbar
 {
@@ -24,46 +16,46 @@ namespace Notebar.Toolbar
     [CSDeskBandRegistration(Name = "Notebar", ShowDeskBand = true)]
     public partial class DeskBand
     {
+        private IndicatorsService IndicatorsService { get; }
+        private GrpcServer GrpcServer { get; }
+
         public DeskBand()
         {
             InitializeComponent();
-            Options.MinHorizontalSize = new Size(20, 20);
-            Options.MinVerticalSize = new Size(20, 20);
+            Options.HorizontalSize = new Size(20, 20);
+            Options.VerticalSize = new Size(20, 20);
 
-            //Port = defaultPort;
-
-            //Options.ContextMenuItems = GetContextMenuItems(Port);
-
-        }
-
-        private List<DeskBandMenuItem> GetContextMenuItems(int port)
-        {
-            var quitAction = new DeskBandMenuAction("Quit")
+            try
             {
-                Text = "Quit",
-            };
-            quitAction.Clicked += (sender, args) => CloseDeskBand();
-
-            return new List<DeskBandMenuItem>() {
-                new DeskBandMenuAction("Port")
+                IndicatorsService = new IndicatorsService(new IconsService());
+                GrpcServer = GrpcServer.Run(port =>
                 {
-                    Enabled = false,
-                    Text = $"UDP port: {port}"
-                },
-               quitAction
-            };
+                    return Dispatcher.Invoke(() =>
+                    {
+                        return IndicatorsService.Add(port);
+                    });
+                });
+            }
+            catch (Exception e)
+            {
+                EventLog.WriteEntry("Notebar", e.Message, EventLogEntryType.Error);
+                throw;
+            }
+
+            FieldsListBox.ItemsSource = IndicatorsService.Indicators;
         }
 
-        private void Quit(object sender, System.Windows.RoutedEventArgs e)
+        private void OnIndicatorQuit(object sender, RoutedEventArgs e)
         {
-            CloseDeskBand();
-            //Server.ShutdownAsync().Wait();
+            var indicator = (Indicator)((MenuItem)sender).DataContext;
+            IndicatorsService.Remove(indicator);
         }
 
         protected override void OnClose()
         {
             base.OnClose();
-            //Server.ShutdownAsync().Wait();
+            IndicatorsService.ShutDownAll();
+            GrpcServer.ShutDown();
         }
     }
 }

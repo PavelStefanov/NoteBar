@@ -68,9 +68,6 @@
     <Compile Include="DeskBand.xaml.cs">
       <DependentUpon>DeskBand.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Icon.xaml.cs">
-      <DependentUpon>Icon.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -85,12 +82,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Icon.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Notebar.Core\Notebar.Core.csproj">
+      <Project>{77974F17-DC27-4DC9-9765-9617E3F799F1}</Project>
+      <Name>Notebar.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Notebar.gRPC\Notebar.gRPC.csproj">
       <Project>{E4D6BB71-61CF-4224-B901-23828ABA6A61}</Project>
       <Name>Notebar.gRPC</Name>
