@@ -13,7 +13,7 @@ namespace Notebar.Core.Grpc
             Server = new Server
             {
                 Services = { NotebarService.BindService(new NotebarGrpcService(addFnc)) },
-                Ports = { new ServerPort("localhost", Constants.GrpcPort, ServerCredentials.Insecure) }
+                Ports = { new ServerPort("127.0.0.1", Constants.GrpcPort, ServerCredentials.Insecure) }
             };
             Server.Start();
 

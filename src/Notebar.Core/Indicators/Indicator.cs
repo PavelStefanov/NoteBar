@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -25,11 +25,8 @@ namespace Notebar.Core.Indicators
                 if (value == _imagePath)
                     return;
 
-                Application.Current.Dispatcher.Invoke(() =>
-                {
-                    _imagePath = value;
-                    OnPropertyChanged();
-                });
+                _imagePath = value;
+                OnPropertyChanged();
             }
         }
 

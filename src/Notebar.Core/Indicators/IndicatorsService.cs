@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows;
 using Notebar.Core.Icons;
 
 namespace Notebar.Core.Indicators
@@ -42,10 +41,7 @@ namespace Notebar.Core.Indicators
         public void Remove(Indicator indicator)
         {
             indicator.Quit();
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                Indicators.Remove(indicator);
-            });
+            Indicators.Remove(indicator);
         }
 
         public void ShutDownAll()
