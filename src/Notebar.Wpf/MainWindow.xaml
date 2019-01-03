@@ -8,7 +8,8 @@
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
-        <ListBox x:Name="FieldsListBox">
+        <ListBox x:Name="FieldsListBox"
+                  Background="Black">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Image Source="{Binding ImagePath}" 

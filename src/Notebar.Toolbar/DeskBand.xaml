@@ -5,8 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Notebar.Toolbar"
              xmlns:deskband="clr-namespace:CSDeskBand.Wpf;assembly=CSDeskBand.Wpf"
-             mc:Ignorable="d" >
-    <ListBox x:Name="FieldsListBox"              
+             mc:Ignorable="d" 
+             DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <ListBox x:Name="Indicators"              
              ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
              ScrollViewer.VerticalScrollBarVisibility="Disabled" 
              Background="Transparent" 
@@ -30,7 +31,7 @@
         </ListBox.ItemTemplate>
         <ListBox.ItemsPanel>
             <ItemsPanelTemplate>
-                <StackPanel Orientation="Horizontal"/>
+                <StackPanel Orientation="{Binding Orientation}"/>
             </ItemsPanelTemplate>
         </ListBox.ItemsPanel>
     </ListBox>

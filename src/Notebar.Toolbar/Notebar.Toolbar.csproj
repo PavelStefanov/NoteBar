@@ -65,6 +65,7 @@
     <Compile Include="DeskBand.xaml.cs">
       <DependentUpon>DeskBand.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OrientationHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

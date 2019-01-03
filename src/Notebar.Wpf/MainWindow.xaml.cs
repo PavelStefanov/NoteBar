@@ -25,7 +25,7 @@ namespace Notebar.Wpf
 
             try
             {
-                IndicatorsService = new IndicatorsService(new IconsService(), Application.Current.Dispatcher);
+                IndicatorsService = new IndicatorsService(new IconsService(), RemoveIndicator);
                 Host = WcfHost.Run(port => IndicatorsService.Add(port));
             }
             catch (CommunicationException ce)
@@ -39,7 +39,15 @@ namespace Notebar.Wpf
         private void OnIndicatorQuit(object sender, RoutedEventArgs e)
         {
             var indicator = (Indicator)((MenuItem)sender).DataContext;
-            IndicatorsService.Remove(indicator);
+            RemoveIndicator(indicator);
+        }
+
+        private void RemoveIndicator(Indicator indicator)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                IndicatorsService.Remove(indicator);
+            });
         }
 
         protected override void OnClosed(EventArgs e)

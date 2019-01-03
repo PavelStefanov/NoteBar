@@ -3,32 +3,66 @@ using Notebar.Core.Icons;
 using Notebar.Core.Indicators;
 using Notebar.Core.WCF;
 using System;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
-using Size = CSDeskBand.Size;
 
 namespace Notebar.Toolbar
 {
     [ComVisible(true)]
     [Guid("32da9796-4495-4157-9aac-d1d7564c4119")]
     [CSDeskBandRegistration(Name = "Notebar", ShowDeskBand = true)]
-    public partial class DeskBand
+    public partial class DeskBand : INotifyPropertyChanged
     {
         private IndicatorsService IndicatorsService { get; }
         private WcfHost Host { get; }
 
+        private Orientation _orientation;
+        public Orientation Orientation
+        {
+            get => _orientation;
+            set
+            {
+                if (value == _orientation)
+                    return;
+
+                _orientation = value;
+                OnPropertyChanged();
+            }
+        }
+
         public DeskBand()
         {
             InitializeComponent();
-            Options.HorizontalSize = new Size(20, 20);
-            Options.VerticalSize = new Size(20, 20);
+            Options.MaxHorizontalHeight = 40;
+            Options.MaxVerticalWidth = 38;
+            Options.IsFixed = true;
+            TaskbarInfo.TaskbarOrientationChanged += (sender, args) =>
+            {
+                UpdateOrientation(args.Orientation);
+                UpdateSize();
+            };
+            TaskbarInfo.TaskbarEdgeChanged += (sender, args) =>
+            {
+                UpdateOrientation(TaskbarInfo.Orientation);
+                UpdateSize();
+            };
 
             try
             {
-                IndicatorsService = new IndicatorsService(new IconsService(), Dispatcher);
-                Host = WcfHost.Run(port => IndicatorsService.Add(port));
+                IndicatorsService = new IndicatorsService(new IconsService(), RemoveIndicator);
+                Host = WcfHost.Run(port =>
+                {
+                    var result = IndicatorsService.Add(port);
+                    if (!string.IsNullOrEmpty(result))
+                        return result;
+
+                    UpdateSize();
+                    return null;
+                });
             }
             catch (Exception e)
             {
@@ -36,22 +70,33 @@ namespace Notebar.Toolbar
                 throw;
             }
 
-            FieldsListBox.ItemsSource = IndicatorsService.Indicators;
+            Indicators.ItemsSource = IndicatorsService.Indicators;
+
+            UpdateOrientation(TaskbarInfo.Orientation);
+            UpdateSize();
         }
 
         private void OnIndicatorQuit(object sender, RoutedEventArgs e)
         {
             var indicator = (Indicator)((MenuItem)sender).DataContext;
+            RemoveIndicator(indicator);
+        }
 
-            try
+        private void RemoveIndicator(Indicator indicator)
+        {
+            Dispatcher.Invoke(() =>
             {
-                IndicatorsService.Remove(indicator);
-            }
-            catch (Exception exception)
-            {
-                EventLog.WriteEntry("Notebar", exception.Message, EventLogEntryType.Error);
-                throw;
-            }
+                try
+                {
+                    IndicatorsService.Remove(indicator);
+                    UpdateSize();
+                }
+                catch (Exception exception)
+                {
+                    EventLog.WriteEntry("Notebar", exception.Message, EventLogEntryType.Error);
+                    throw;
+                }
+            });
         }
 
         protected override void OnClose()
@@ -59,6 +104,31 @@ namespace Notebar.Toolbar
             base.OnClose();
             IndicatorsService.ShutDownAll();
             Host.ShutDown();
+        }
+
+        private void UpdateOrientation(TaskbarOrientation taskbarOrientation)
+        {
+            Orientation = OrientationHelper.Map(taskbarOrientation);
+        }
+
+        private void UpdateSize()
+        {
+            switch (Orientation)
+            {
+                case Orientation.Horizontal:
+                    Options.HorizontalSize.Width = Options.MinHorizontalSize.Width = IndicatorsService.Indicators.Count * 38;
+                    break;
+                case Orientation.Vertical:
+                    Options.VerticalSize.Height = Options.MinVerticalSize.Height = IndicatorsService.Indicators.Count * 30;
+                    break;
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
