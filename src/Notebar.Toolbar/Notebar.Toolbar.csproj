@@ -45,9 +45,6 @@
     <Reference Include="CSDeskBand.Wpf, Version=2.0.0.0, Culture=neutral, PublicKeyToken=66d19cfc65a1cc19, processorArchitecture=MSIL">
       <HintPath>..\packages\CSDeskBand.Wpf.2.1.0\lib\net461\CSDeskBand.Wpf.dll</HintPath>
     </Reference>
-    <Reference Include="Grpc.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
-      <HintPath>..\packages\Grpc.Core.1.17.1\lib\net45\Grpc.Core.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -87,10 +84,6 @@
     <ProjectReference Include="..\Notebar.Core\Notebar.Core.csproj">
       <Project>{77974F17-DC27-4DC9-9765-9617E3F799F1}</Project>
       <Name>Notebar.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Notebar.gRPC\Notebar.gRPC.csproj">
-      <Project>{E4D6BB71-61CF-4224-B901-23828ABA6A61}</Project>
-      <Name>Notebar.gRPC</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Notebar.Core")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Notebar.App")]
+[assembly: AssemblyDescription("Windows taskbar toolbar status indicator")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Pavel Stefanov")]
-[assembly: AssemblyProduct("Notebar.Core")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyProduct("Notebar.App")]
+[assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("77974f17-dc27-4dc9-9765-9617e3f799f1")]
+[assembly: Guid("1094a2ec-aaae-4e6a-856a-afccc8e37d52")]
 
 // Version information for an assembly consists of the following four values:
 //

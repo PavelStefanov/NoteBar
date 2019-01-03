@@ -1,7 +1,11 @@
-﻿using Notebar.Core.Grpc;
+﻿using Notebar.Core;
 using Notebar.Core.Icons;
 using Notebar.Core.Indicators;
+using Notebar.Core.WCF;
+using Notebar.WCF;
 using System;
+using System.ServiceModel;
+using System.ServiceModel.Description;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -13,20 +17,21 @@ namespace Notebar.Wpf
     public partial class MainWindow : Window
     {
         private IndicatorsService IndicatorsService { get; }
-        private GrpcServer GrpcServer { get; }
+        private WcfHost Host { get; }
 
         public MainWindow()
         {
             InitializeComponent();
 
-            IndicatorsService = new IndicatorsService(new IconsService());
-            GrpcServer = GrpcServer.Run(port =>
-             {
-                 return Dispatcher.Invoke(() =>
-                  {
-                      return IndicatorsService.Add(port);
-                  });
-             });
+            try
+            {
+                IndicatorsService = new IndicatorsService(new IconsService());
+                Host = WcfHost.Run(port => IndicatorsService.Add(port));
+            }
+            catch (CommunicationException ce)
+            {
+                Console.WriteLine("An exception occurred: {0}", ce.Message);
+            }
 
             FieldsListBox.ItemsSource = IndicatorsService.Indicators;
         }
@@ -40,9 +45,8 @@ namespace Notebar.Wpf
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-
             IndicatorsService.ShutDownAll();
-            GrpcServer.ShutDown();
+            Host.ShutDown();
         }
     }
 }

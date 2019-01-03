@@ -5,13 +5,16 @@ VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notebar.Toolbar", "Notebar.Toolbar\Notebar.Toolbar.csproj", "{F387C1F1-3096-4C05-BD50-C869247BDB43}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notebar.App", "Notebar.App\Notebar.App.csproj", "{1F4CAEEC-BA5B-4DD2-9DD2-47DC4C095CEA}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notebar.gRPC", "Notebar.gRPC\Notebar.gRPC.csproj", "{E4D6BB71-61CF-4224-B901-23828ABA6A61}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notebar.Wpf", "Notebar.Wpf\Notebar.Wpf.csproj", "{B099FE8F-F740-4850-A3D0-CBB2E2FD5EDB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notebar.Core", "Notebar.Core\Notebar.Core.csproj", "{77974F17-DC27-4DC9-9765-9617E3F799F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notebar.WCF", "Notebar.WCF\Notebar.WCF.csproj", "{53EE3AC2-1787-4F3A-AB7D-DB7AB52C1C0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notebar.App", "Notebar.App\Notebar.App.csproj", "{1094A2EC-AAAE-4E6A-856A-AFCCC8E37D52}"
+	ProjectSection(ProjectDependencies) = postProject
+		{53EE3AC2-1787-4F3A-AB7D-DB7AB52C1C0D} = {53EE3AC2-1787-4F3A-AB7D-DB7AB52C1C0D}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,14 +26,6 @@ Global
 		{F387C1F1-3096-4C05-BD50-C869247BDB43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F387C1F1-3096-4C05-BD50-C869247BDB43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F387C1F1-3096-4C05-BD50-C869247BDB43}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1F4CAEEC-BA5B-4DD2-9DD2-47DC4C095CEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F4CAEEC-BA5B-4DD2-9DD2-47DC4C095CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F4CAEEC-BA5B-4DD2-9DD2-47DC4C095CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F4CAEEC-BA5B-4DD2-9DD2-47DC4C095CEA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E4D6BB71-61CF-4224-B901-23828ABA6A61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4D6BB71-61CF-4224-B901-23828ABA6A61}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4D6BB71-61CF-4224-B901-23828ABA6A61}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4D6BB71-61CF-4224-B901-23828ABA6A61}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B099FE8F-F740-4850-A3D0-CBB2E2FD5EDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B099FE8F-F740-4850-A3D0-CBB2E2FD5EDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B099FE8F-F740-4850-A3D0-CBB2E2FD5EDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +34,14 @@ Global
 		{77974F17-DC27-4DC9-9765-9617E3F799F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77974F17-DC27-4DC9-9765-9617E3F799F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77974F17-DC27-4DC9-9765-9617E3F799F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53EE3AC2-1787-4F3A-AB7D-DB7AB52C1C0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53EE3AC2-1787-4F3A-AB7D-DB7AB52C1C0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53EE3AC2-1787-4F3A-AB7D-DB7AB52C1C0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53EE3AC2-1787-4F3A-AB7D-DB7AB52C1C0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1094A2EC-AAAE-4E6A-856A-AFCCC8E37D52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1094A2EC-AAAE-4E6A-856A-AFCCC8E37D52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1094A2EC-AAAE-4E6A-856A-AFCCC8E37D52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1094A2EC-AAAE-4E6A-856A-AFCCC8E37D52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

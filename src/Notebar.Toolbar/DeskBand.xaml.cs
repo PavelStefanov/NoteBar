@@ -1,7 +1,7 @@
 ﻿using CSDeskBand;
-using Notebar.Core.Grpc;
 using Notebar.Core.Icons;
 using Notebar.Core.Indicators;
+using Notebar.Core.WCF;
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -17,7 +17,7 @@ namespace Notebar.Toolbar
     public partial class DeskBand
     {
         private IndicatorsService IndicatorsService { get; }
-        private GrpcServer GrpcServer { get; }
+        private WcfHost Host { get; }
 
         public DeskBand()
         {
@@ -28,13 +28,7 @@ namespace Notebar.Toolbar
             try
             {
                 IndicatorsService = new IndicatorsService(new IconsService());
-                GrpcServer = GrpcServer.Run(port =>
-                {
-                    return Dispatcher.Invoke(() =>
-                    {
-                        return IndicatorsService.Add(port);
-                    });
-                });
+                Host = WcfHost.Run(port => IndicatorsService.Add(port));
             }
             catch (Exception e)
             {
@@ -48,14 +42,23 @@ namespace Notebar.Toolbar
         private void OnIndicatorQuit(object sender, RoutedEventArgs e)
         {
             var indicator = (Indicator)((MenuItem)sender).DataContext;
-            IndicatorsService.Remove(indicator);
+
+            try
+            {
+                IndicatorsService.Remove(indicator);
+            }
+            catch (Exception exception)
+            {
+                EventLog.WriteEntry("Notebar", exception.Message, EventLogEntryType.Error);
+                throw;
+            }
         }
 
         protected override void OnClose()
         {
             base.OnClose();
             IndicatorsService.ShutDownAll();
-            GrpcServer.ShutDown();
+            Host.ShutDown();
         }
     }
 }

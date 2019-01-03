@@ -1,9 +1,6 @@
 ﻿using CommandLine;
-using Grpc.Core;
-using Notebar.Core;
-using Notebar.gRPC;
 using System;
-using static Notebar.gRPC.NotebarService;
+using Notebar.App.NotebarServiceReference;
 
 namespace Notebar.App
 {
@@ -18,25 +15,25 @@ namespace Notebar.App
         private static void AddIndicator(uint port)
         {
             Console.WriteLine("Adding indicator...");
-            var channel = new Channel($"127.0.0.1:{Constants.GrpcPort}", ChannelCredentials.Insecure);
-            var client = new NotebarServiceClient(channel);
+            var client = new NotebarServiceClient();
+
             try
             {
-                var response = client.AddIndicator(new AddIndicatorRequest { Port = port });
-                if (!string.IsNullOrEmpty(response.Result))
+                var response = client.AddIndicator(port);
+                if (!string.IsNullOrEmpty(response))
                 {
-                    Console.WriteLine($"Cannot add indicator. Error: {response.Result}");
+                    Console.WriteLine($"Cannot add indicator. Error: {response}");
                     return;
                 }
             }
-            catch (RpcException rpcException)
+            catch (Exception e)
             {
-                Console.WriteLine($"Cannot add indicator. Error: {rpcException.Message}");
+                Console.WriteLine($"Cannot add indicator. Error: {e.Message}");
                 return;
             }
             finally
             {
-                channel.ShutdownAsync().Wait();
+                client.Close();
             }
 
             Console.WriteLine("Indicator was added");
