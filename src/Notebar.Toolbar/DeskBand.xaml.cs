@@ -27,7 +27,7 @@ namespace Notebar.Toolbar
 
             try
             {
-                IndicatorsService = new IndicatorsService(new IconsService());
+                IndicatorsService = new IndicatorsService(new IconsService(), Dispatcher);
                 Host = WcfHost.Run(port => IndicatorsService.Add(port));
             }
             catch (Exception e)

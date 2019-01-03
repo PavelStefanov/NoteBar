@@ -6,29 +6,32 @@
              xmlns:local="clr-namespace:Notebar.Toolbar"
              xmlns:deskband="clr-namespace:CSDeskBand.Wpf;assembly=CSDeskBand.Wpf"
              mc:Ignorable="d" >
-    <StackPanel>
-        <ListBox x:Name="FieldsListBox">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Image Source="{Binding ImagePath}" 
+    <ListBox x:Name="FieldsListBox"              
+             ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+             ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+             Background="Transparent" 
+             BorderBrush="Transparent">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <Image Source="{Binding ImagePath}" 
+                           Stretch="Fill"
                            RenderOptions.BitmapScalingMode="HighQuality"
-                           Height="20" Width="20" 
+                           Height="25" Width="20" 
                            Margin="2,0,2,0"
                            HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Image.ContextMenu>
-                            <ContextMenu >
-                                <MenuItem HeaderStringFormat="UDP port: {0}" Header="{Binding Port}" IsEnabled="False" />
-                                <MenuItem Header="Quit" Click="OnIndicatorQuit" />
-                            </ContextMenu>
-                        </Image.ContextMenu>
-                    </Image>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-        </ListBox>
-    </StackPanel>
+                    <Image.ContextMenu>
+                        <ContextMenu >
+                            <MenuItem HeaderStringFormat="UDP port: {0}" Header="{Binding Port}" IsEnabled="False" />
+                            <MenuItem Header="Quit" Click="OnIndicatorQuit" />
+                        </ContextMenu>
+                    </Image.ContextMenu>
+                </Image>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+        <ListBox.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel Orientation="Horizontal"/>
+            </ItemsPanelTemplate>
+        </ListBox.ItemsPanel>
+    </ListBox>
 </deskband:CSDeskBandWpf>

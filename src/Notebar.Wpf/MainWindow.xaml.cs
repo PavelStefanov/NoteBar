@@ -25,7 +25,7 @@ namespace Notebar.Wpf
 
             try
             {
-                IndicatorsService = new IndicatorsService(new IconsService());
+                IndicatorsService = new IndicatorsService(new IconsService(), Application.Current.Dispatcher);
                 Host = WcfHost.Run(port => IndicatorsService.Add(port));
             }
             catch (CommunicationException ce)

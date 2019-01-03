@@ -15,27 +15,23 @@ namespace Notebar.App
         private static void AddIndicator(uint port)
         {
             Console.WriteLine("Adding indicator...");
-            var client = new NotebarServiceClient();
-
-            try
+            using (var client = new NotebarServiceClient())
             {
-                var response = client.AddIndicator(port);
-                if (!string.IsNullOrEmpty(response))
+                try
                 {
-                    Console.WriteLine($"Cannot add indicator. Error: {response}");
+                    var response = client.AddIndicator(port);
+                    if (!string.IsNullOrEmpty(response))
+                    {
+                        Console.WriteLine($"Cannot add indicator. Error: {response}");
+                        return;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Cannot add indicator. Error: {e.Message}");
                     return;
                 }
             }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Cannot add indicator. Error: {e.Message}");
-                return;
-            }
-            finally
-            {
-                client.Close();
-            }
-
             Console.WriteLine("Indicator was added");
         }
     }
