@@ -2,6 +2,8 @@
 using System;
 using Notebar.App.NotebarServiceReference;
 using System.ServiceModel;
+using Notebar.DeskBand;
+using Notebar.Core;
 
 namespace Notebar.App
 {
@@ -16,6 +18,41 @@ namespace Notebar.App
         private static void AddIndicator(uint port)
         {
             Console.WriteLine("Adding indicator...");
+            var isShown = CheckOrShowDeskBand();
+            if (!isShown)
+            {
+                Console.WriteLine("Cannot add indicator. Error: You have to turn Notebar on");
+                return;
+            }
+
+            var error = AddIndicatorToNotebarService(port);
+            if (!string.IsNullOrEmpty(error))
+            {
+                Console.WriteLine(error);
+                return;
+            }
+
+            Console.WriteLine("Indicator was added");
+        }
+
+        private static bool CheckOrShowDeskBand()
+        {
+            Guid notebarGuid = new Guid(Constants.NotebarGuid);
+            using (var trayDeskband = new TrayDeskband())
+            {
+                if (trayDeskband.IsDeskBandShown(notebarGuid))
+                    return true;
+
+                var showResult = trayDeskband.ShowDeskBand(notebarGuid);
+                if (!showResult)
+                    return false;
+
+                return trayDeskband.IsDeskBandShown(notebarGuid);
+            }
+        }
+
+        private static string AddIndicatorToNotebarService(uint port)
+        {
             var client = new NotebarServiceClient();
 
             try
@@ -23,19 +60,16 @@ namespace Notebar.App
                 var response = client.AddIndicator(port);
                 if (!string.IsNullOrEmpty(response))
                 {
-                    Console.WriteLine($"Cannot add indicator. Error: {response}");
-                    return;
+                    return $"Cannot add indicator. Error: {response}";
                 }
             }
             catch (EndpointNotFoundException)
             {
-                Console.WriteLine("Cannot add indicator. Error: Notebar is not running");
-                return;
+                return "Cannot add indicator. Error: Notebar is not running";
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Cannot add indicator. Error: {e.Message}");
-                return;
+                return $"Cannot add indicator. Error: {e.Message}";
             }
             finally
             {
@@ -49,7 +83,7 @@ namespace Notebar.App
                 }
             }
 
-            Console.WriteLine("Indicator was added");
+            return null;
         }
     }
 }

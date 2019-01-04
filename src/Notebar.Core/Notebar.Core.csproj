@@ -36,7 +36,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\Notebar.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
@@ -57,6 +57,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="Icons\IconsService.cs" />
     <Compile Include="Indicators\Indicator.cs" />
     <Compile Include="Indicators\IndicatorsService.cs" />
@@ -81,13 +82,15 @@
     <Resource Include="Icons\Resources\yellow%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="key.snk" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Notebar.WCF\Notebar.WCF.csproj">
       <Project>{53EE3AC2-1787-4F3A-AB7D-DB7AB52C1C0D}</Project>
       <Name>Notebar.WCF</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Notebar.snk">
+      <Link>Notebar.snk</Link>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Grpc.Core.1.17.1\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.1.17.1\build\net45\Grpc.Core.targets')" />

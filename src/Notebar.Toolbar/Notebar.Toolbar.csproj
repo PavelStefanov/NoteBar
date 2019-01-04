@@ -36,7 +36,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\Notebar.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CSDeskBand, Version=2.0.0.0, Culture=neutral, PublicKeyToken=66d19cfc65a1cc19, processorArchitecture=MSIL">
@@ -69,10 +69,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Notebar.snk">
+      <Link>Notebar.snk</Link>
+    </None>
     <None Include="app.config" />
     <None Include="Build\registre.ps1" />
     <None Include="Build\unregistre.ps1" />
-    <None Include="key.snk" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

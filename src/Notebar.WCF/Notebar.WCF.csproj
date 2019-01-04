@@ -48,7 +48,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\Notebar.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -69,7 +69,9 @@
     <Compile Include="NotebarService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="key.snk" />
+    <None Include="..\Notebar.snk">
+      <Link>Notebar.snk</Link>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

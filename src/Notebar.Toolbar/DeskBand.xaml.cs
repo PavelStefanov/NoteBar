@@ -1,4 +1,5 @@
 ﻿using CSDeskBand;
+using Notebar.Core;
 using Notebar.Core.Icons;
 using Notebar.Core.Indicators;
 using Notebar.Core.WCF;
@@ -13,7 +14,7 @@ using System.Windows.Controls;
 namespace Notebar.Toolbar
 {
     [ComVisible(true)]
-    [Guid("32da9796-4495-4157-9aac-d1d7564c4119")]
+    [Guid(Constants.NotebarGuid)]
     [CSDeskBandRegistration(Name = "Notebar", ShowDeskBand = true)]
     public partial class DeskBand : INotifyPropertyChanged
     {

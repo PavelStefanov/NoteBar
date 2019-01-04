@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notebar.App", "Notebar.App\
 		{53EE3AC2-1787-4F3A-AB7D-DB7AB52C1C0D} = {53EE3AC2-1787-4F3A-AB7D-DB7AB52C1C0D}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notebar.DeskBand", "Notebar.DeskBand\Notebar.DeskBand.csproj", "{681E3500-1DC9-48B4-BA2C-DAF5A456B69B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{1094A2EC-AAAE-4E6A-856A-AFCCC8E37D52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1094A2EC-AAAE-4E6A-856A-AFCCC8E37D52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1094A2EC-AAAE-4E6A-856A-AFCCC8E37D52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{681E3500-1DC9-48B4-BA2C-DAF5A456B69B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{681E3500-1DC9-48B4-BA2C-DAF5A456B69B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{681E3500-1DC9-48B4-BA2C-DAF5A456B69B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{681E3500-1DC9-48B4-BA2C-DAF5A456B69B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
