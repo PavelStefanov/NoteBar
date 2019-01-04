@@ -18,36 +18,37 @@ namespace Notebar.App
         private static void AddIndicator(uint port)
         {
             Console.WriteLine("Adding indicator...");
-            var isShown = CheckOrShowDeskBand();
-            if (!isShown)
+            var error = CheckOrShowDeskBand();
+            if (!string.IsNullOrEmpty(error))
             {
-                Console.WriteLine("Cannot add indicator. Error: You have to turn Notebar on");
+                Console.WriteLine($"Cannot add indicator. Error: {error}");
                 return;
             }
 
-            var error = AddIndicatorToNotebarService(port);
+            error = AddIndicatorToNotebarService(port);
             if (!string.IsNullOrEmpty(error))
             {
-                Console.WriteLine(error);
+                Console.WriteLine($"Cannot add indicator. Error: {error}");
                 return;
             }
 
             Console.WriteLine("Indicator was added");
         }
 
-        private static bool CheckOrShowDeskBand()
+        private static string CheckOrShowDeskBand()
         {
             Guid notebarGuid = new Guid(Constants.NotebarGuid);
             using (var trayDeskband = new TrayDeskband())
             {
                 if (trayDeskband.IsDeskBandShown(notebarGuid))
-                    return true;
+                    return null;
 
                 var showResult = trayDeskband.ShowDeskBand(notebarGuid);
                 if (!showResult)
-                    return false;
+                    return "Notebar not installed";
 
-                return trayDeskband.IsDeskBandShown(notebarGuid);
+                return trayDeskband.IsDeskBandShown(notebarGuid) ? null :
+                    "You have to turn Notebar on";
             }
         }
 
@@ -60,16 +61,16 @@ namespace Notebar.App
                 var response = client.AddIndicator(port);
                 if (!string.IsNullOrEmpty(response))
                 {
-                    return $"Cannot add indicator. Error: {response}";
+                    return response;
                 }
             }
             catch (EndpointNotFoundException)
             {
-                return "Cannot add indicator. Error: Notebar is not running";
+                return "Notebar is not running";
             }
             catch (Exception e)
             {
-                return $"Cannot add indicator. Error: {e.Message}";
+                return e.Message;
             }
             finally
             {
