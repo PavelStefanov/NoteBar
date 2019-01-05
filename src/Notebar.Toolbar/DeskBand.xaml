@@ -2,37 +2,46 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Notebar.Toolbar"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:deskband="clr-namespace:CSDeskBand.Wpf;assembly=CSDeskBand.Wpf"
              mc:Ignorable="d" 
              DataContext="{Binding RelativeSource={RelativeSource Self}}">
-    <ListBox x:Name="Indicators"              
+    <ItemsControl x:Name="Indicators"              
              ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
              ScrollViewer.VerticalScrollBarVisibility="Disabled" 
-             Background="Transparent" 
-             BorderBrush="Transparent">
-        <ListBox.ItemTemplate>
+             Background="Transparent">
+        <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <Image Source="{Binding ImagePath}" 
-                           Stretch="Fill"
-                           RenderOptions.BitmapScalingMode="HighQuality"
-                           Height="25" Width="20" 
-                           Margin="2,0,2,0"
-                           HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Image.ContextMenu>
+                <Border>
+                    <DockPanel Background="Transparent">
+                        <Image Source="{Binding ImagePath}" 
+                           Height="25" Width="20" >
+                        </Image>
+                    </DockPanel>
+                    <Border.ContextMenu>
                         <ContextMenu >
                             <MenuItem HeaderStringFormat="UDP port: {0}" Header="{Binding Port}" IsEnabled="False" />
                             <MenuItem Header="Quit" Click="OnIndicatorQuit" />
                         </ContextMenu>
-                    </Image.ContextMenu>
-                </Image>
+                    </Border.ContextMenu>
+                    <Border.Style>
+                        <Style>
+                            <Setter Property="Border.Padding" Value="5,2,5,2"/>
+                            <Setter Property="Border.Background" Value="Transparent"/>
+                            <Style.Triggers>
+                                <Trigger Property="Border.IsMouseOver" Value="True">
+                                    <Setter Property="Border.Background" Value="#30323E" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                </Border>
             </DataTemplate>
-        </ListBox.ItemTemplate>
-        <ListBox.ItemsPanel>
+        </ItemsControl.ItemTemplate>
+        <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
                 <StackPanel Orientation="{Binding Orientation}"/>
             </ItemsPanelTemplate>
-        </ListBox.ItemsPanel>
-    </ListBox>
+        </ItemsControl.ItemsPanel>
+    </ItemsControl>
 </deskband:CSDeskBandWpf>

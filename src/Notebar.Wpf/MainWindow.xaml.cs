@@ -1,11 +1,7 @@
-﻿using Notebar.Core;
-using Notebar.Core.Icons;
+﻿using Notebar.Core.Icons;
 using Notebar.Core.Indicators;
 using Notebar.Core.WCF;
-using Notebar.WCF;
 using System;
-using System.ServiceModel;
-using System.ServiceModel.Description;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -22,18 +18,21 @@ namespace Notebar.Wpf
         public MainWindow()
         {
             InitializeComponent();
+            Application.Current.MainWindow.Height = 40;
 
-            try
+            IndicatorsService = new IndicatorsService(new IconsService(), RemoveIndicator);
+            Host = WcfHost.Run(port =>
             {
-                IndicatorsService = new IndicatorsService(new IconsService(), RemoveIndicator);
-                Host = WcfHost.Run(port => IndicatorsService.Add(port));
-            }
-            catch (CommunicationException ce)
-            {
-                Console.WriteLine("An exception occurred: {0}", ce.Message);
-            }
+                var result = IndicatorsService.Add(port);
+                if (!string.IsNullOrEmpty(result))
+                    return result;
 
-            FieldsListBox.ItemsSource = IndicatorsService.Indicators;
+                UpdateSize();
+                return null;
+            });
+
+            Indicators.ItemsSource = IndicatorsService.Indicators;
+            UpdateSize();
         }
 
         private void OnIndicatorQuit(object sender, RoutedEventArgs e)
@@ -47,6 +46,7 @@ namespace Notebar.Wpf
             Dispatcher.Invoke(() =>
             {
                 IndicatorsService.Remove(indicator);
+                UpdateSize();
             });
         }
 
@@ -55,6 +55,11 @@ namespace Notebar.Wpf
             base.OnClosed(e);
             IndicatorsService.ShutDownAll();
             Host.ShutDown();
+        }
+
+        private void UpdateSize()
+        {
+            Indicators.Width = Indicators.MinWidth = IndicatorsService.Indicators.Count * 30;
         }
     }
 }

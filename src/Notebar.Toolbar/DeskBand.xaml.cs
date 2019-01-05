@@ -1,4 +1,4 @@
-﻿using CSDeskBand;
+using CSDeskBand;
 using Notebar.Core;
 using Notebar.Core.Icons;
 using Notebar.Core.Indicators;
@@ -22,6 +22,7 @@ namespace Notebar.Toolbar
         private WcfHost Host { get; }
 
         private Orientation _orientation;
+
         public Orientation Orientation
         {
             get => _orientation;
@@ -38,17 +39,10 @@ namespace Notebar.Toolbar
         public DeskBand()
         {
             InitializeComponent();
-            Options.MaxHorizontalHeight = 40;
-            Options.MaxVerticalWidth = 38;
             Options.IsFixed = true;
             TaskbarInfo.TaskbarOrientationChanged += (sender, args) =>
             {
                 UpdateOrientation(args.Orientation);
-                UpdateSize();
-            };
-            TaskbarInfo.TaskbarEdgeChanged += (sender, args) =>
-            {
-                UpdateOrientation(TaskbarInfo.Orientation);
                 UpdateSize();
             };
 
@@ -117,10 +111,10 @@ namespace Notebar.Toolbar
             switch (Orientation)
             {
                 case Orientation.Horizontal:
-                    Options.HorizontalSize.Width = Options.MinHorizontalSize.Width = IndicatorsService.Indicators.Count * 38;
+                    Options.HorizontalSize.Width = Options.MinHorizontalSize.Width = IndicatorsService.Indicators.Count * 30;
                     break;
                 case Orientation.Vertical:
-                    Options.VerticalSize.Height = Options.MinVerticalSize.Height = IndicatorsService.Indicators.Count * 30;
+                    Options.VerticalSize.Height = Options.MinVerticalSize.Height = IndicatorsService.Indicators.Count * 29;
                     break;
             }
         }

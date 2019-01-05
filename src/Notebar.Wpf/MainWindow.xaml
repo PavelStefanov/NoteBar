@@ -3,34 +3,47 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Notebar.Wpf"
         mc:Ignorable="d"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
-        <ListBox x:Name="FieldsListBox"
-                  Background="Black">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Image Source="{Binding ImagePath}" 
-                           RenderOptions.BitmapScalingMode="HighQuality"
-                           Height="20" Width="20" 
-                           Margin="2,0,2,0"
-                           HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Image.ContextMenu>
-                            <ContextMenu >
-                                <MenuItem HeaderStringFormat="UDP port: {0}" Header="{Binding Port}" IsEnabled="False" />
-                                <MenuItem Header="Quit" Click="OnIndicatorQuit" />
-                            </ContextMenu>
-                        </Image.ContextMenu>
-                    </Image>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-        </ListBox>
-    </StackPanel>
+        Title="MainWindow"
+        WindowStyle="None"
+        SizeToContent="Width">
+    <ItemsControl x:Name="Indicators"              
+             ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+             ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+             Background="Black" >
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Border>
+                    <DockPanel>
+                        <Image Source="{Binding ImagePath}" 
+                           Height="25" Width="20" >
+                        </Image>
+                    </DockPanel>
+                    <Border.ContextMenu>
+                        <ContextMenu >
+                            <MenuItem HeaderStringFormat="UDP port: {0}" Header="{Binding Port}" IsEnabled="False" />
+                            <MenuItem Header="Quit" Click="OnIndicatorQuit" />
+                        </ContextMenu>
+                    </Border.ContextMenu>
+                    <Border.Style>
+                        <Style>
+                            <Setter Property="Border.Padding" Value="5,2,5,2"/>
+                            <Setter Property="Border.Background" Value="Transparent"/>
+                            <Style.Triggers>
+                                <Trigger Property="Border.IsMouseOver" Value="True">
+                                    <Setter Property="Border.Background" Value="#30323E" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                </Border>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel Orientation="Horizontal"/>
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+    </ItemsControl>
 </Window>
