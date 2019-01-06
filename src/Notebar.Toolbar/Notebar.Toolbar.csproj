@@ -49,9 +49,6 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Interactive.Async, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Interactive.Async.3.1.1\lib\net46\System.Interactive.Async.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -72,9 +69,8 @@
     <None Include="..\Notebar.snk">
       <Link>Notebar.snk</Link>
     </None>
-    <None Include="app.config" />
-    <None Include="Build\registre.ps1" />
-    <None Include="Build\unregistre.ps1" />
+    <None Include="Test\registre.ps1" />
+    <None Include="Test\unregistre.ps1" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -98,11 +94,4 @@
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
-  <Import Project="..\packages\Grpc.Core.1.17.1\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.1.17.1\build\net45\Grpc.Core.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Grpc.Core.1.17.1\build\net45\Grpc.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grpc.Core.1.17.1\build\net45\Grpc.Core.targets'))" />
-  </Target>
 </Project>

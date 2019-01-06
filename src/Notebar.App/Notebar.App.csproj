@@ -7,7 +7,7 @@
     <ProjectGuid>{1094A2EC-AAAE-4E6A-856A-AFCCC8E37D52}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Notebar.App</RootNamespace>
-    <AssemblyName>Notebar.App</AssemblyName>
+    <AssemblyName>notebar</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -59,9 +59,6 @@
       <HintPath>..\packages\System.Console.4.0.0\lib\net46\System.Console.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
-    <Reference Include="System.Interactive.Async, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Interactive.Async.3.1.1\lib\net46\System.Interactive.Async.dll</HintPath>
-    </Reference>
     <Reference Include="System.Reflection.TypeExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Reflection.TypeExtensions.4.1.0\lib\net46\System.Reflection.TypeExtensions.dll</HintPath>
     </Reference>
@@ -106,6 +103,10 @@
       <Project>{681e3500-1dc9-48b4-ba2c-daf5a456b69b}</Project>
       <Name>Notebar.DeskBand</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Notebar.Toolbar\Notebar.Toolbar.csproj">
+      <Project>{f387c1f1-3096-4c05-bd50-c869247bdb43}</Project>
+      <Name>Notebar.Toolbar</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -141,11 +142,4 @@
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\Grpc.Core.1.17.1\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.1.17.1\build\net45\Grpc.Core.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Grpc.Core.1.17.1\build\net45\Grpc.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grpc.Core.1.17.1\build\net45\Grpc.Core.targets'))" />
-  </Target>
 </Project>

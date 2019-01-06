@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Notebar.Core")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Windows taskbar toolbar status indicator")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Pavel Stefanov")]
 [assembly: AssemblyProduct("Notebar.Core")]
