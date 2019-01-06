@@ -40,11 +40,6 @@ namespace Notebar.Toolbar
         {
             InitializeComponent();
             Options.IsFixed = true;
-            TaskbarInfo.TaskbarOrientationChanged += (sender, args) =>
-            {
-                UpdateOrientation(args.Orientation);
-                UpdateSize();
-            };
 
             try
             {

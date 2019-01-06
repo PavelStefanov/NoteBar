@@ -44,36 +44,23 @@ namespace Notebar.Core.Icons
                 Path.Combine(appData, $"{name}.png")
             };
 
-            foreach (var path in paths)
-            {
-                if (File.Exists(path))
-                {
-                    return path;
-                }
-            }
-
-            return null;
+            return paths.FirstOrDefault(p => File.Exists(p));
         }
 
-        private string FindIconInResource(string icon)
+        private string FindIconInResource(string name)
         {
             var paths = new[]
             {
-                $"Icons/Resources/{icon}_alt@2x.png",
-                $"Icons/Resources/{icon}_alt.png",
-                $"Icons/Resources/{icon}@2x.png",
-                $"Icons/Resources/{icon}.png"
+                $"Icons/Resources/{name}_alt@2x.png",
+                $"Icons/Resources/{name}_alt.png",
+                $"Icons/Resources/{name}@2x.png",
+                $"Icons/Resources/{name}.png"
             };
 
-            foreach (var path in paths)
-            {
-                if (DefaultIcons.Any(v => v.Equals(path, StringComparison.InvariantCultureIgnoreCase)))
-                {
-                    return $"pack://application:,,,/Notebar.Core;component/{path}";
-                }
-            }
+            var path = paths.FirstOrDefault(p =>
+                DefaultIcons.Any(v => v.Equals(p, StringComparison.InvariantCultureIgnoreCase)));
 
-            return null;
+            return string.IsNullOrEmpty(path) ? null : $"pack://application:,,,/Notebar.Core;component/{path}";
         }
 
         private string[] GetDefaultIcons()
