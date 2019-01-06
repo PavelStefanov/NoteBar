@@ -1,4 +1,4 @@
-#Requires -RunAsAdministrator
+﻿#Requires -RunAsAdministrator
 
 $NotebarDir = "$env:SystemDrive\Program Files\Notebar\"
 

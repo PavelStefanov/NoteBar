@@ -336,4 +336,6 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
-install/src/
+
+chocolatey/tools/src/
+chocolatey/tools/src.zip
