@@ -17,7 +17,7 @@
                 <Border>
                     <DockPanel>
                         <Image Source="{Binding ImagePath}" 
-                           Height="25" Width="20" >
+                           Height="16" Width="16" >
                         </Image>
                     </DockPanel>
                     <Border.ContextMenu>
@@ -28,7 +28,7 @@
                     </Border.ContextMenu>
                     <Border.Style>
                         <Style>
-                            <Setter Property="Border.Padding" Value="5,2,5,2"/>
+                            <Setter Property="Border.Padding" Value="5,5,5,5"/>
                             <Setter Property="Border.Background" Value="Transparent"/>
                             <Style.Triggers>
                                 <Trigger Property="Border.IsMouseOver" Value="True">

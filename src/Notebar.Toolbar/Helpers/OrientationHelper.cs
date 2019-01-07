@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Windows.Controls;
 
-namespace Notebar.Toolbar
+namespace Notebar.Toolbar.Helpers
 {
     public static class OrientationHelper
     {
-
         public static Orientation Map(TaskbarOrientation taskbarOrientation)
         {
             var orientations = InitOrientationsDict();

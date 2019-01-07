@@ -3,6 +3,7 @@ using Notebar.Core;
 using Notebar.Core.Icons;
 using Notebar.Core.Indicators;
 using Notebar.Core.WCF;
+using Notebar.Toolbar.Helpers;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -18,6 +19,9 @@ namespace Notebar.Toolbar
     [CSDeskBandRegistration(Name = "Notebar", ShowDeskBand = true)]
     public partial class DeskBand : INotifyPropertyChanged
     {
+        private const int IndicatorItemHeight = 26;
+        private const int IndicatorItemWidth = 26;
+
         private IndicatorsService IndicatorsService { get; }
         private WcfHost Host { get; }
 
@@ -103,13 +107,18 @@ namespace Notebar.Toolbar
 
         private void UpdateSize()
         {
+            var dpiOptions = DpiHelper.GetDpiOptions();
+
+            double size = 0;
             switch (Orientation)
             {
                 case Orientation.Horizontal:
-                    Options.HorizontalSize.Width = Options.MinHorizontalSize.Width = IndicatorsService.Indicators.Count * 30;
+                    size = IndicatorsService.Indicators.Count * IndicatorItemWidth * dpiOptions.WidthFactor;
+                    Options.HorizontalSize.Width = Options.MinHorizontalSize.Width = Convert.ToInt32(size);
                     break;
                 case Orientation.Vertical:
-                    Options.VerticalSize.Height = Options.MinVerticalSize.Height = IndicatorsService.Indicators.Count * 29;
+                    size = IndicatorsService.Indicators.Count * IndicatorItemHeight * dpiOptions.HeightFactor;
+                    Options.VerticalSize.Height = Options.MinVerticalSize.Height = Convert.ToInt32(size);
                     break;
             }
         }

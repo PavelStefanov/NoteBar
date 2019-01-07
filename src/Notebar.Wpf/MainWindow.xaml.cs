@@ -4,6 +4,8 @@ using Notebar.Core.WCF;
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Interop;
+using System.Windows.Media;
 
 namespace Notebar.Wpf
 {
@@ -59,7 +61,14 @@ namespace Notebar.Wpf
 
         private void UpdateSize()
         {
-            Indicators.Width = Indicators.MinWidth = IndicatorsService.Indicators.Count * 30;
+            Matrix transformToDevice;
+            using (var source = new HwndSource(new HwndSourceParameters()))
+                transformToDevice = source.CompositionTarget.TransformToDevice;
+
+            double DpiWidthFactor = transformToDevice.M11;
+            double DpiHeightFactor = transformToDevice.M22;
+
+            Indicators.Width = Indicators.MinWidth = Convert.ToInt32(IndicatorsService.Indicators.Count * 26 * DpiWidthFactor);
         }
     }
 }
