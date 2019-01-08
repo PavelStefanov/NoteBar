@@ -62,8 +62,11 @@
     <Compile Include="DeskBand.xaml.cs">
       <DependentUpon>DeskBand.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DeskBandViewModel.cs" />
     <Compile Include="Helpers\DpiHelper.cs" />
     <Compile Include="Helpers\OrientationHelper.cs" />
+    <Compile Include="MVVM\BindingProxy.cs" />
+    <Compile Include="MVVM\RelayCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

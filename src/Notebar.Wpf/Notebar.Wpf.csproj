@@ -37,6 +37,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CSDeskBand, Version=2.0.0.0, Culture=neutral, PublicKeyToken=66d19cfc65a1cc19, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSDeskBand.2.1.0\lib\net461\CSDeskBand.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Interactive.Async, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
@@ -92,6 +95,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -104,6 +108,10 @@
     <ProjectReference Include="..\Notebar.Core\Notebar.Core.csproj">
       <Project>{77974f17-dc27-4dc9-9765-9617e3f799f1}</Project>
       <Name>Notebar.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Notebar.Toolbar\Notebar.Toolbar.csproj">
+      <Project>{f387c1f1-3096-4c05-bd50-c869247bdb43}</Project>
+      <Name>Notebar.Toolbar</Name>
     </ProjectReference>
     <ProjectReference Include="..\Notebar.WCF\Notebar.WCF.csproj">
       <Project>{53ee3ac2-1787-4f3a-ab7d-db7ab52c1c0d}</Project>

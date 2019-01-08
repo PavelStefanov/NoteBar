@@ -3,27 +3,33 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mvvm="clr-namespace:Notebar.Toolbar.MVVM;assembly=Notebar.Toolbar"
         mc:Ignorable="d"
-        DataContext="{Binding RelativeSource={RelativeSource Self}}"
         Title="MainWindow"
+        Background="Black"
         WindowStyle="None"
         SizeToContent="Width">
+    <Window.Resources>
+        <mvvm:BindingProxy  x:Key="DeskBandDataContext"  Data="{Binding}" />
+    </Window.Resources>
     <ItemsControl x:Name="Indicators"              
              ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
              ScrollViewer.VerticalScrollBarVisibility="Disabled" 
-             Background="Black" >
+             Background="Transparent"
+             ItemsSource="{Binding Indicators}">
         <ItemsControl.ItemTemplate>
             <DataTemplate>
                 <Border>
-                    <DockPanel>
+                    <DockPanel Background="Transparent">
                         <Image Source="{Binding ImagePath}" 
-                           Height="16" Width="16" >
-                        </Image>
+                           Height="16" Width="16" />
                     </DockPanel>
                     <Border.ContextMenu>
                         <ContextMenu >
                             <MenuItem HeaderStringFormat="UDP port: {0}" Header="{Binding Port}" IsEnabled="False" />
-                            <MenuItem Header="Quit" Click="OnIndicatorQuit" />
+                            <MenuItem Header="Quit" 
+                                      CommandParameter="{Binding}"
+                                      Command="{Binding Path=Data.IndicatorQuit, Source={StaticResource DeskBandDataContext}}" />
                         </ContextMenu>
                     </Border.ContextMenu>
                     <Border.Style>
@@ -32,7 +38,7 @@
                             <Setter Property="Border.Background" Value="Transparent"/>
                             <Style.Triggers>
                                 <Trigger Property="Border.IsMouseOver" Value="True">
-                                    <Setter Property="Border.Background" Value="#30323E" />
+                                    <Setter Property="Border.Background" Value="#44FFFFFF" />
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
@@ -42,7 +48,7 @@
         </ItemsControl.ItemTemplate>
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <StackPanel Orientation="Horizontal"/>
+                <StackPanel Orientation="{Binding Orientation}"/>
             </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
     </ItemsControl>
