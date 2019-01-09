@@ -1,13 +1,13 @@
 using CSDeskBand;
-using Notebar.Core;
+using NoteBar.Core;
 using System;
 using System.Runtime.InteropServices;
 
-namespace Notebar.Toolbar
+namespace NoteBar.Toolbar
 {
     [ComVisible(true)]
-    [Guid(Constants.NotebarGuid)]
-    [CSDeskBandRegistration(Name = "Notebar", ShowDeskBand = true)]
+    [Guid(Constants.NoteBarGuid)]
+    [CSDeskBandRegistration(Name = "NoteBar", ShowDeskBand = true)]
     public partial class DeskBand
     {
         private DeskBandViewModel ViewModel { get; }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Notebar.Toolbar.MVVM
+namespace NoteBar.Toolbar.MVVM
 {
     public class RelayCommand : ICommand
     {

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Notebar.Wpf.Properties
+namespace NoteBar.Wpf.Properties
 {
 
 

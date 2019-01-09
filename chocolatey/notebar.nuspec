@@ -3,14 +3,14 @@
     xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
     <metadata>
         <id>notebar</id>
-        <title>notebar</title>
+        <title>NoteBar</title>
         <version>1.0.0</version>
         <owners>Pavel Stefanov</owners>
         <authors>Pavel Stefanov</authors>
-        <licenseUrl>https://github.com/PavelStefanov/Notebar/blob/master/LICENSE</licenseUrl>
-        <projectUrl>https://github.com/PavelStefanov/Notebar</projectUrl>
-        <packageSourceUrl>https://github.com/PavelStefanov/Notebar</packageSourceUrl>
-        <projectSourceUrl>https://github.com/PavelStefanov/Notebar</projectSourceUrl>
+        <licenseUrl>https://github.com/PavelStefanov/NoteBar/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/PavelStefanov/NoteBar</projectUrl>
+        <packageSourceUrl>https://github.com/PavelStefanov/NoteBar</packageSourceUrl>
+        <projectSourceUrl>https://github.com/PavelStefanov/NoteBar</projectSourceUrl>
         <copyright>2018</copyright>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <tags>notebar anybar somebar</tags>

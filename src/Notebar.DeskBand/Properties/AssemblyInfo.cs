@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Notebar.DeskBand")]
+[assembly: AssemblyTitle("NoteBar.DeskBand")]
 [assembly: AssemblyDescription("Windows taskbar toolbar status indicator")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Pavel Stefanov")]
-[assembly: AssemblyProduct("Notebar.DeskBand")]
+[assembly: AssemblyProduct("NoteBar.DeskBand")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

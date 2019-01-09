@@ -1,7 +1,7 @@
-﻿namespace Notebar.Core
+﻿namespace NoteBar.Core
 {
     public static class Constants
     {
-        public const string NotebarGuid = "32da9796-4495-4157-9aac-d1d7564c4119";
+        public const string NoteBarGuid = "32da9796-4495-4157-9aac-d1d7564c4119";
     }
 }

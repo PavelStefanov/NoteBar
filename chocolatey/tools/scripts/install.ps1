@@ -1,18 +1,18 @@
 ﻿#Requires -RunAsAdministrator
 
-$NotebarDir = "$env:Programfiles\Notebar"
+$NoteBarDir = "$env:Programfiles\NoteBar"
 
 # Copy src
-New-Item -ItemType Directory -Path $NotebarDir
-Get-ChildItem -Path "src" | Copy-Item -Destination $NotebarDir
+New-Item -ItemType Directory -Path $NoteBarDir
+Get-ChildItem -Path "src" | Copy-Item -Destination $NoteBarDir
 Remove-Item -Path "src" -Recurse -Force
 
-# Add Notebar to PATH
-[Environment]::SetEnvironmentVariable("Path", "$env:Path;$NotebarDir", [System.EnvironmentVariableTarget]::Machine)
+# Add NoteBar to PATH
+[Environment]::SetEnvironmentVariable("Path", "$env:Path;$NoteBarDir", [System.EnvironmentVariableTarget]::Machine)
 
 # Get regasm path
 $dotnetPath = [System.Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()
 $RegasmPath = "$dotnetPath\RegAsm.exe"
 
-# Registre Notebar deskband
-& $RegasmPath /codebase "$NotebarDir\Notebar.Toolbar.dll"
+# Registre NoteBar deskband
+& $RegasmPath /codebase "$NoteBarDir\NoteBar.Toolbar.dll"

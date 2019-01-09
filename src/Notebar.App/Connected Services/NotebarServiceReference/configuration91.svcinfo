@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="lJnC4EJ8VRYYyz51R1EYDH1piVI=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="Q/KSGBILrPzvfjF33qWJEawNfJ4=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="netNamedPipeBinding" name="NetNamedPipeBinding_INotebarService">
+    <bindingConfiguration bindingType="netNamedPipeBinding" name="NetNamedPipeBinding_INoteBarService">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetNamedPipeBinding_INotebarService</serializedValue>
+          <serializedValue>NetNamedPipeBinding_INoteBarService</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -76,10 +76,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetNamedPipeBinding_INotebarService" contract="NotebarServiceReference.INotebarService" bindingType="netNamedPipeBinding" address="net.pipe://127.0.0.1/NotebarService" bindingConfiguration="NetNamedPipeBinding_INotebarService">
+    <endpoint name="NetNamedPipeBinding_INoteBarService" contract="NoteBarServiceReference.INoteBarService" bindingType="netNamedPipeBinding" address="net.pipe://127.0.0.1/NoteBar/NoteBarService" bindingConfiguration="NetNamedPipeBinding_INoteBarService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.pipe://127.0.0.1/NotebarService</serializedValue>
+          <serializedValue>net.pipe://127.0.0.1/NoteBar/NoteBarService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -88,10 +88,10 @@
           <serializedValue>netNamedPipeBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetNamedPipeBinding_INotebarService</serializedValue>
+          <serializedValue>NetNamedPipeBinding_INoteBarService</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NotebarServiceReference.INotebarService</serializedValue>
+          <serializedValue>NoteBarServiceReference.INoteBarService</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
@@ -151,7 +151,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetNamedPipeBinding_INotebarService</serializedValue>
+          <serializedValue>NetNamedPipeBinding_INoteBarService</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

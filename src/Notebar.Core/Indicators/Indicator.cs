@@ -3,10 +3,10 @@ using System.Diagnostics;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
-using Notebar.Core.Icons;
-using Notebar.Core.Udp;
+using NoteBar.Core.Icons;
+using NoteBar.Core.Udp;
 
-namespace Notebar.Core.Indicators
+namespace NoteBar.Core.Indicators
 {
     public class Indicator : INotifyPropertyChanged
     {
@@ -58,7 +58,7 @@ namespace Notebar.Core.Indicators
             var icon = IconsService.FindIcon(message);
             if (icon == null)
             {
-                EventLog.WriteEntry("Notebar", $"Cannot find '{icon}' icon", EventLogEntryType.Warning);
+                EventLog.WriteEntry("NoteBar", $"Cannot find '{icon}' icon", EventLogEntryType.Warning);
                 icon = IconsService.FindIcon("question");
             }
 

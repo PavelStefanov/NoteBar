@@ -1,16 +1,16 @@
 ﻿using System;
 using System.ServiceModel;
 
-namespace Notebar.WCF
+namespace NoteBar.WCF
 {
-    public class NotebarServiceHost : ServiceHost
+    public class NoteBarServiceHost : ServiceHost
     {
-        public NotebarServiceHost(Func<uint, string> addFnc, Type serviceType, params Uri[] baseAddresses)
+        public NoteBarServiceHost(Func<uint, string> addFnc, Type serviceType, params Uri[] baseAddresses)
             : base(serviceType, baseAddresses)
         {
             foreach (var cd in ImplementedContracts.Values)
             {
-                cd.Behaviors.Add(new NotebarServiceInstanceProvider(addFnc));
+                cd.Behaviors.Add(new NoteBarServiceInstanceProvider(addFnc));
             }
         }
     }

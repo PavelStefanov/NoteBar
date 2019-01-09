@@ -3,20 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notebar.Toolbar", "Notebar.Toolbar\Notebar.Toolbar.csproj", "{F387C1F1-3096-4C05-BD50-C869247BDB43}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteBar.Toolbar", "NoteBar.Toolbar\NoteBar.Toolbar.csproj", "{F387C1F1-3096-4C05-BD50-C869247BDB43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notebar.Wpf", "Notebar.Wpf\Notebar.Wpf.csproj", "{B099FE8F-F740-4850-A3D0-CBB2E2FD5EDB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteBar.Wpf", "NoteBar.Wpf\NoteBar.Wpf.csproj", "{B099FE8F-F740-4850-A3D0-CBB2E2FD5EDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notebar.Core", "Notebar.Core\Notebar.Core.csproj", "{77974F17-DC27-4DC9-9765-9617E3F799F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteBar.Core", "NoteBar.Core\NoteBar.Core.csproj", "{77974F17-DC27-4DC9-9765-9617E3F799F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notebar.WCF", "Notebar.WCF\Notebar.WCF.csproj", "{53EE3AC2-1787-4F3A-AB7D-DB7AB52C1C0D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteBar.WCF", "NoteBar.WCF\NoteBar.WCF.csproj", "{53EE3AC2-1787-4F3A-AB7D-DB7AB52C1C0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notebar.App", "Notebar.App\Notebar.App.csproj", "{1094A2EC-AAAE-4E6A-856A-AFCCC8E37D52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteBar.App", "NoteBar.App\NoteBar.App.csproj", "{1094A2EC-AAAE-4E6A-856A-AFCCC8E37D52}"
 	ProjectSection(ProjectDependencies) = postProject
 		{53EE3AC2-1787-4F3A-AB7D-DB7AB52C1C0D} = {53EE3AC2-1787-4F3A-AB7D-DB7AB52C1C0D}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notebar.DeskBand", "Notebar.DeskBand\Notebar.DeskBand.csproj", "{681E3500-1DC9-48B4-BA2C-DAF5A456B69B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteBar.DeskBand", "NoteBar.DeskBand\NoteBar.DeskBand.csproj", "{681E3500-1DC9-48B4-BA2C-DAF5A456B69B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

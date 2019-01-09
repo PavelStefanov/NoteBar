@@ -4,20 +4,20 @@ using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
 
-namespace Notebar.WCF
+namespace NoteBar.WCF
 {
-    public class NotebarServiceInstanceProvider : IInstanceProvider, IContractBehavior
+    public class NoteBarServiceInstanceProvider : IInstanceProvider, IContractBehavior
     {
         private readonly Func<uint, string> AddFnc;
 
-        public NotebarServiceInstanceProvider(Func<uint, string> addFnc)
+        public NoteBarServiceInstanceProvider(Func<uint, string> addFnc)
         {
             AddFnc = addFnc;
         }
 
         public object GetInstance(InstanceContext instanceContext)
         {
-            return new NotebarService(AddFnc);
+            return new NoteBarService(AddFnc);
         }
 
         public object GetInstance(InstanceContext instanceContext, Message message)

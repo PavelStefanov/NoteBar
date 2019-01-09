@@ -1,11 +1,11 @@
 ﻿using CommandLine;
 using System;
-using Notebar.App.NotebarServiceReference;
 using System.ServiceModel;
-using Notebar.DeskBand;
-using Notebar.Core;
+using NoteBar.DeskBand;
+using NoteBar.Core;
+using NoteBar.App.NoteBarServiceReference;
 
-namespace Notebar.App
+namespace NoteBar.App
 {
     public class Program
     {
@@ -25,7 +25,7 @@ namespace Notebar.App
                 return;
             }
 
-            error = AddIndicatorToNotebarService(port);
+            error = AddIndicatorToNoteBarService(port);
             if (!string.IsNullOrEmpty(error))
             {
                 Console.WriteLine($"Cannot add indicator. Error: {error}");
@@ -37,7 +37,7 @@ namespace Notebar.App
 
         private static string CheckOrShowDeskBand()
         {
-            Guid notebarGuid = new Guid(Constants.NotebarGuid);
+            Guid notebarGuid = new Guid(Constants.NoteBarGuid);
             using (var trayDeskband = new TrayDeskband())
             {
                 if (trayDeskband.IsDeskBandShown(notebarGuid))
@@ -45,16 +45,16 @@ namespace Notebar.App
 
                 var showResult = trayDeskband.ShowDeskBand(notebarGuid);
                 if (!showResult)
-                    return "Notebar not installed";
+                    return "NoteBar not installed";
 
                 return trayDeskband.IsDeskBandShown(notebarGuid) ? null :
-                    "You have to turn Notebar on";
+                    "You have to turn NoteBar on";
             }
         }
 
-        private static string AddIndicatorToNotebarService(uint port)
+        private static string AddIndicatorToNoteBarService(uint port)
         {
-            var client = new NotebarServiceClient();
+            var client = new NoteBarServiceClient();
 
             try
             {
@@ -66,7 +66,7 @@ namespace Notebar.App
             }
             catch (EndpointNotFoundException)
             {
-                return "Notebar is not running";
+                return "NoteBar is not running";
             }
             catch (Exception e)
             {

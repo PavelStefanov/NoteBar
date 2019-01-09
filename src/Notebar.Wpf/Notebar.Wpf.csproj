@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B099FE8F-F740-4850-A3D0-CBB2E2FD5EDB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Notebar.Wpf</RootNamespace>
-    <AssemblyName>Notebar.Wpf</AssemblyName>
+    <RootNamespace>NoteBar.Wpf</RootNamespace>
+    <AssemblyName>NoteBar.Wpf</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -105,17 +105,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Notebar.Core\Notebar.Core.csproj">
+    <ProjectReference Include="..\NoteBar.Core\NoteBar.Core.csproj">
       <Project>{77974f17-dc27-4dc9-9765-9617e3f799f1}</Project>
-      <Name>Notebar.Core</Name>
+      <Name>NoteBar.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Notebar.Toolbar\Notebar.Toolbar.csproj">
+    <ProjectReference Include="..\NoteBar.Toolbar\NoteBar.Toolbar.csproj">
       <Project>{f387c1f1-3096-4c05-bd50-c869247bdb43}</Project>
-      <Name>Notebar.Toolbar</Name>
+      <Name>NoteBar.Toolbar</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Notebar.WCF\Notebar.WCF.csproj">
+    <ProjectReference Include="..\NoteBar.WCF\NoteBar.WCF.csproj">
       <Project>{53ee3ac2-1787-4f3a-ab7d-db7ab52c1c0d}</Project>
-      <Name>Notebar.WCF</Name>
+      <Name>NoteBar.WCF</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

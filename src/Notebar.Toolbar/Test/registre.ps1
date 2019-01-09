@@ -2,4 +2,4 @@
 $dotnetPath = [System.Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()
 $RegasmPath = "$dotnetPath\RegAsm.exe"
 
-& $RegasmPath /codebase ../bin/Debug/Notebar.Toolbar.dll
+& $RegasmPath /codebase ../bin/Debug/NoteBar.Toolbar.dll

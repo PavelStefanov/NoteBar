@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Notebar.Toolbar.MVVM
+namespace NoteBar.Toolbar.MVVM
 {
     public class BindingProxy : Freezable
     {

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Interop;
 
-namespace Notebar.Toolbar.Helpers
+namespace NoteBar.Toolbar.Helpers
 {
     public class DpiOptions
     {

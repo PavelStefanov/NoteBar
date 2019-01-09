@@ -1,9 +1,9 @@
 ﻿using System.ServiceModel;
 
-namespace Notebar.WCF
+namespace NoteBar.WCF
 {
     [ServiceContract]
-    public interface INotebarService
+    public interface INoteBarService
     {
         [OperationContract]
         string AddIndicator(uint port);

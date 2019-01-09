@@ -1,12 +1,12 @@
-﻿using Notebar.WCF;
+﻿using NoteBar.WCF;
 using System;
 using System.ServiceModel;
 
-namespace Notebar.Core.WCF
+namespace NoteBar.Core.WCF
 {
     public class WcfHost
     {
-        private NotebarServiceHost Host { get; set; }
+        private NoteBarServiceHost Host { get; set; }
 
         public static WcfHost Run(Func<uint, string> addFnc)
         {
@@ -15,10 +15,10 @@ namespace Notebar.Core.WCF
 
         public WcfHost Start(Func<uint, string> addFnc)
         {
-            Host = new NotebarServiceHost(addFnc, typeof(NotebarService), new Uri("net.pipe://127.0.0.1/Notebar"));
+            Host = new NoteBarServiceHost(addFnc, typeof(NoteBarService), new Uri("net.pipe://127.0.0.1/NoteBar"));
 
             var binding = new NetNamedPipeBinding(NetNamedPipeSecurityMode.None);
-            Host.AddServiceEndpoint(typeof(INotebarService), binding, "NotebarService");
+            Host.AddServiceEndpoint(typeof(INoteBarService), binding, "NoteBarService");
 
             Host.Open();
 

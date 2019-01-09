@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace Notebar.Core.Icons
+namespace NoteBar.Core.Icons
 {
     public class IconsService
     {
@@ -34,7 +34,7 @@ namespace Notebar.Core.Icons
 
         private string FindIconInAppData(string name)
         {
-            var appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Notebar");
+            var appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "NoteBar");
             var iconPath = Path.Combine(appData, $"{name}.png");
 
             return File.Exists(iconPath) ? iconPath : null;
@@ -45,7 +45,7 @@ namespace Notebar.Core.Icons
             var iconPath = $"Icons/Resources/{name}.png";
 
             return DefaultIcons.Any(i => i.Equals(iconPath, StringComparison.InvariantCultureIgnoreCase)) ?
-                $"pack://application:,,,/Notebar.Core;component/{iconPath}" : null;
+                $"pack://application:,,,/NoteBar.Core;component/{iconPath}" : null;
         }
 
         private string[] GetDefaultIcons()

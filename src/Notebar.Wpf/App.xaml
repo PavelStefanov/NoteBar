@@ -1,7 +1,7 @@
-﻿<Application x:Class="Notebar.Wpf.App"
+﻿<Application x:Class="NoteBar.Wpf.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Notebar.Wpf"
+             xmlns:local="clr-namespace:NoteBar.Wpf"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

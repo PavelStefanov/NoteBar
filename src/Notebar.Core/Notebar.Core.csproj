@@ -7,8 +7,8 @@
     <ProjectGuid>{77974F17-DC27-4DC9-9765-9617E3F799F1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Notebar.Core</RootNamespace>
-    <AssemblyName>Notebar.Core</AssemblyName>
+    <RootNamespace>NoteBar.Core</RootNamespace>
+    <AssemblyName>NoteBar.Core</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -36,7 +36,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>..\Notebar.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\NoteBar.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -64,14 +64,14 @@
     <Compile Include="WCF\WcfHost.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Notebar.WCF\Notebar.WCF.csproj">
+    <ProjectReference Include="..\NoteBar.WCF\NoteBar.WCF.csproj">
       <Project>{53EE3AC2-1787-4F3A-AB7D-DB7AB52C1C0D}</Project>
-      <Name>Notebar.WCF</Name>
+      <Name>NoteBar.WCF</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Notebar.snk">
-      <Link>Notebar.snk</Link>
+    <None Include="..\NoteBar.snk">
+      <Link>NoteBar.snk</Link>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -3,7 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
-namespace Notebar.Core.Udp
+namespace NoteBar.Core.Udp
 {
     public class UdpServer
     {

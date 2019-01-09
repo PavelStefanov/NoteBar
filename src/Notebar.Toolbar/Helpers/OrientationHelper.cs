@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Controls;
 
-namespace Notebar.Toolbar.Helpers
+namespace NoteBar.Toolbar.Helpers
 {
     public static class OrientationHelper
     {

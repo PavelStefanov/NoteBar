@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using Notebar.Core.Icons;
+using NoteBar.Core.Icons;
 
-namespace Notebar.Core.Indicators
+namespace NoteBar.Core.Indicators
 {
     public class IndicatorsService
     {

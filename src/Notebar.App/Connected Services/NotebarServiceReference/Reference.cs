@@ -8,44 +8,44 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Notebar.App.NotebarServiceReference {
+namespace NoteBar.App.NoteBarServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="NotebarServiceReference.INotebarService")]
-    public interface INotebarService {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="NoteBarServiceReference.INoteBarService")]
+    public interface INoteBarService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INotebarService/AddIndicator", ReplyAction="http://tempuri.org/INotebarService/AddIndicatorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INoteBarService/AddIndicator", ReplyAction="http://tempuri.org/INoteBarService/AddIndicatorResponse")]
         string AddIndicator(uint port);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INotebarService/AddIndicator", ReplyAction="http://tempuri.org/INotebarService/AddIndicatorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INoteBarService/AddIndicator", ReplyAction="http://tempuri.org/INoteBarService/AddIndicatorResponse")]
         System.Threading.Tasks.Task<string> AddIndicatorAsync(uint port);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface INotebarServiceChannel : Notebar.App.NotebarServiceReference.INotebarService, System.ServiceModel.IClientChannel {
+    public interface INoteBarServiceChannel : NoteBar.App.NoteBarServiceReference.INoteBarService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class NotebarServiceClient : System.ServiceModel.ClientBase<Notebar.App.NotebarServiceReference.INotebarService>, Notebar.App.NotebarServiceReference.INotebarService {
+    public partial class NoteBarServiceClient : System.ServiceModel.ClientBase<NoteBar.App.NoteBarServiceReference.INoteBarService>, NoteBar.App.NoteBarServiceReference.INoteBarService {
         
-        public NotebarServiceClient() {
+        public NoteBarServiceClient() {
         }
         
-        public NotebarServiceClient(string endpointConfigurationName) : 
+        public NoteBarServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public NotebarServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public NoteBarServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public NotebarServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public NoteBarServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public NotebarServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public NoteBarServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         

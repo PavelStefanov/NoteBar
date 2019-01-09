@@ -7,8 +7,8 @@
     <ProjectGuid>{681E3500-1DC9-48B4-BA2C-DAF5A456B69B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Notebar.DeskBand</RootNamespace>
-    <AssemblyName>Notebar.DeskBand</AssemblyName>
+    <RootNamespace>NoteBar.DeskBand</RootNamespace>
+    <AssemblyName>NoteBar.DeskBand</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

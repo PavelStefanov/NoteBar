@@ -1,6 +1,6 @@
 ﻿using CommandLine;
 
-namespace Notebar.App
+namespace NoteBar.App
 {
     public class Options
     {

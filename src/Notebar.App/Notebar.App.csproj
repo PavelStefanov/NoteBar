@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1094A2EC-AAAE-4E6A-856A-AFCCC8E37D52}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Notebar.App</RootNamespace>
+    <RootNamespace>NoteBar.App</RootNamespace>
     <AssemblyName>notebar</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -72,7 +72,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\NotebarServiceReference\Reference.cs">
+    <Compile Include="Connected Services\NoteBarServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -85,27 +85,27 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\NotebarServiceReference\item.xsd">
+    <None Include="Connected Services\NoteBarServiceReference\service.wsdl" />
+    <None Include="Connected Services\NoteBarServiceReference\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\NotebarServiceReference\item1.xsd">
+    <None Include="Connected Services\NoteBarServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\NotebarServiceReference\NotebarService.wsdl" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Notebar.Core\Notebar.Core.csproj">
+    <ProjectReference Include="..\NoteBar.Core\NoteBar.Core.csproj">
       <Project>{77974f17-dc27-4dc9-9765-9617e3f799f1}</Project>
-      <Name>Notebar.Core</Name>
+      <Name>NoteBar.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Notebar.DeskBand\Notebar.DeskBand.csproj">
+    <ProjectReference Include="..\NoteBar.DeskBand\NoteBar.DeskBand.csproj">
       <Project>{681e3500-1dc9-48b4-ba2c-daf5a456b69b}</Project>
-      <Name>Notebar.DeskBand</Name>
+      <Name>NoteBar.DeskBand</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Notebar.Toolbar\Notebar.Toolbar.csproj">
+    <ProjectReference Include="..\NoteBar.Toolbar\NoteBar.Toolbar.csproj">
       <Project>{f387c1f1-3096-4c05-bd50-c869247bdb43}</Project>
-      <Name>Notebar.Toolbar</Name>
+      <Name>NoteBar.Toolbar</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -124,19 +124,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\NotebarServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\NoteBarServiceReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\NotebarServiceReference\item.disco" />
+    <None Include="Connected Services\NoteBarServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\NotebarServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\NoteBarServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\NotebarServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\NotebarServiceReference\Reference.svcmap">
+    <None Include="Connected Services\NoteBarServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

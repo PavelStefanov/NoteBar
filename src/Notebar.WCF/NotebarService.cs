@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace Notebar.WCF
+namespace NoteBar.WCF
 {
-    public class NotebarService : INotebarService
+    public class NoteBarService : INoteBarService
     {
         public Func<uint, string> AddFnc { get; }
 
-        public NotebarService(Func<uint, string> addFnc)
+        public NoteBarService(Func<uint, string> addFnc)
         {
             AddFnc = addFnc;
         }

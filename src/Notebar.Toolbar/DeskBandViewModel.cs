@@ -1,9 +1,9 @@
 ﻿using CSDeskBand;
-using Notebar.Core.Icons;
-using Notebar.Core.Indicators;
-using Notebar.Core.WCF;
-using Notebar.Toolbar.Helpers;
-using Notebar.Toolbar.MVVM;
+using NoteBar.Core.Icons;
+using NoteBar.Core.Indicators;
+using NoteBar.Core.WCF;
+using NoteBar.Toolbar.Helpers;
+using NoteBar.Toolbar.MVVM;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Controls;
 using System.Windows.Threading;
 
-namespace Notebar.Toolbar
+namespace NoteBar.Toolbar
 {
     public class DeskBandViewModel : INotifyPropertyChanged
     {
@@ -66,7 +66,7 @@ namespace Notebar.Toolbar
             }
             catch (Exception e)
             {
-                EventLog.WriteEntry("Notebar", e.Message, EventLogEntryType.Error);
+                EventLog.WriteEntry("NoteBar", e.Message, EventLogEntryType.Error);
                 throw;
             }
 
@@ -84,7 +84,7 @@ namespace Notebar.Toolbar
                 }
                 catch (Exception exception)
                 {
-                    EventLog.WriteEntry("Notebar", exception.Message, EventLogEntryType.Error);
+                    EventLog.WriteEntry("NoteBar", exception.Message, EventLogEntryType.Error);
                     throw;
                 }
             });

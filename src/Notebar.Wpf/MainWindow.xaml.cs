@@ -1,9 +1,9 @@
 ﻿using CSDeskBand;
-using Notebar.Toolbar;
+using NoteBar.Toolbar;
 using System;
 using System.Windows;
 
-namespace Notebar.Wpf
+namespace NoteBar.Wpf
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

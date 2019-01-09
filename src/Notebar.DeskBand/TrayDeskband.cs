@@ -2,7 +2,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace Notebar.DeskBand
+namespace NoteBar.DeskBand
 {
     public class TrayDeskband : IDisposable
     {
