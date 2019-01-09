@@ -1,21 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>notebar</id>
-    <title>notebar</title>
-    <version>1.0.0</version>
-    <owners>Pavel Stefanov</owners>
-    <authors>Pavel Stefanov</authors>
-    <licenseUrl>https://github.com/PavelStefanov/Notebar/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/PavelStefanov/Notebar</projectUrl>
-    <packageSourceUrl>https://github.com/PavelStefanov/Notebar</packageSourceUrl>
-    <projectSourceUrl>https://github.com/PavelStefanov/Notebar</projectSourceUrl>
-    <copyright>2018</copyright>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <tags>notebar anybar somebar</tags>
-    <description>Windows taskbar toolbar status indicator</description>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-  </files>
+<package
+    xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+    <metadata>
+        <id>notebar</id>
+        <title>notebar</title>
+        <version>1.0.0</version>
+        <owners>Pavel Stefanov</owners>
+        <authors>Pavel Stefanov</authors>
+        <licenseUrl>https://github.com/PavelStefanov/Notebar/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/PavelStefanov/Notebar</projectUrl>
+        <packageSourceUrl>https://github.com/PavelStefanov/Notebar</packageSourceUrl>
+        <projectSourceUrl>https://github.com/PavelStefanov/Notebar</projectSourceUrl>
+        <copyright>2018</copyright>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <tags>notebar anybar somebar</tags>
+        <description>Windows taskbar toolbar status indicator</description>
+        <dependencies>
+            <dependency id="dotnet4.7.1" version="4.7.2558.0" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="tools\**" target="tools" />
+    </files>
 </package>
