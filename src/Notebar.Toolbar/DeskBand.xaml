@@ -8,6 +8,7 @@
              mc:Ignorable="d" >
     <deskband:CSDeskBandWpf.Resources>
         <mvvm:BindingProxy x:Key="DeskBandDataContext" Data="{Binding}" />
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     </deskband:CSDeskBandWpf.Resources>
     <ItemsControl x:Name="Indicators"              
              ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
@@ -16,31 +17,27 @@
              ItemsSource="{Binding Indicators}">
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <Border>
-                    <DockPanel Background="Transparent">
-                        <Image Source="{Binding ImagePath}" 
-                           Height="16" Width="16" />
-                    </DockPanel>
-                    <Border.ContextMenu>
+                <Grid x:Name="Indicator">
+                    <Border Padding="5,5,5,5">
+                        <DockPanel>
+                            <Image Source="{Binding ImagePath}" 
+                                   Height="16" Width="16" />
+                        </DockPanel>
+                    </Border>
+                    <DockPanel Background="#22FFFFFF"
+                               Visibility="{Binding IsMouseOver, 
+                                            ElementName=Indicator, 
+                                            Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    <Grid.ContextMenu>
                         <ContextMenu >
                             <MenuItem HeaderStringFormat="UDP port: {0}" Header="{Binding Port}" IsEnabled="False" />
                             <MenuItem Header="Quit" 
                                       CommandParameter="{Binding}"
-                                      Command="{Binding Path=Data.IndicatorQuit, Source={StaticResource DeskBandDataContext}}" />
+                                      Command="{Binding Path=Data.IndficatorQuit, 
+                                                Source={StaticResource DeskBandDataContext}}" />
                         </ContextMenu>
-                    </Border.ContextMenu>
-                    <Border.Style>
-                        <Style>
-                            <Setter Property="Border.Padding" Value="5,5,5,5"/>
-                            <Setter Property="Border.Background" Value="Transparent"/>
-                            <Style.Triggers>
-                                <Trigger Property="Border.IsMouseOver" Value="True">
-                                    <Setter Property="Border.Background" Value="#44FFFFFF" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Border.Style>
-                </Border>
+                    </Grid.ContextMenu>
+                </Grid>
             </DataTemplate>
         </ItemsControl.ItemTemplate>
         <ItemsControl.ItemsPanel>
