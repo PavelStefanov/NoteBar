@@ -33,7 +33,7 @@
                             <MenuItem HeaderStringFormat="UDP port: {0}" Header="{Binding Port}" IsEnabled="False" />
                             <MenuItem Header="Quit" 
                                       CommandParameter="{Binding}"
-                                      Command="{Binding Path=Data.IndficatorQuit, 
+                                      Command="{Binding Path=Data.IndicatorQuit, 
                                                 Source={StaticResource DeskBandDataContext}}" />
                         </ContextMenu>
                     </Grid.ContextMenu>
