@@ -1,0 +1,49 @@
+﻿<deskband:CSDeskBandWpf x:Class="NoteBar.Toolbar.DeskBand"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:deskband="clr-namespace:CSDeskBand.Wpf;assembly=CSDeskBand.Wpf"
+             xmlns:mvvm="clr-namespace:NoteBar.Toolbar.MVVM"
+             mc:Ignorable="d" >
+    <deskband:CSDeskBandWpf.Resources>
+        <mvvm:BindingProxy x:Key="DeskBandDataContext" Data="{Binding}" />
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </deskband:CSDeskBandWpf.Resources>
+    <ItemsControl x:Name="Indicators"              
+             ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+             ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+             Background="Transparent"
+             ItemsSource="{Binding Indicators}">
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Grid x:Name="Indicator">
+                    <Border Padding="5,5,5,5">
+                        <DockPanel>
+                            <Image Source="{Binding ImagePath}" 
+                                   Height="16" Width="16" />
+                        </DockPanel>
+                    </Border>
+                    <DockPanel Background="#22FFFFFF"
+                               Visibility="{Binding IsMouseOver, 
+                                            ElementName=Indicator, 
+                                            Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    <Grid.ContextMenu>
+                        <ContextMenu >
+                            <MenuItem HeaderStringFormat="UDP port: {0}" Header="{Binding Port}" IsEnabled="False" />
+                            <MenuItem Header="Quit" 
+                                      CommandParameter="{Binding}"
+                                      Command="{Binding Path=Data.IndicatorQuit, 
+                                                Source={StaticResource DeskBandDataContext}}" />
+                        </ContextMenu>
+                    </Grid.ContextMenu>
+                </Grid>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel Orientation="{Binding Orientation}"/>
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+    </ItemsControl>
+</deskband:CSDeskBandWpf>
