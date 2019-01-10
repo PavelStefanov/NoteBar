@@ -15,6 +15,7 @@ namespace NoteBar.Toolbar
         public DeskBand()
         {
             InitializeComponent();
+            TransparencyEnabled = false;
 
             ViewModel = new DeskBandViewModel(Options, Dispatcher);
             ViewModel.Init(TaskbarInfo.Orientation);
