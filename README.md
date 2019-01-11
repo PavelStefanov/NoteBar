@@ -30,17 +30,17 @@ $byteBuffer = [System.Text.Encoding]::UTF8.GetBytes("black");
 
 The following default commands change the style of the dot:
 
-<img src="src/NoteBar.Core/Icons/Resources/white.png?raw=true" width=19 /> `white`  
-<img src="src/NoteBar.Core/Icons/Resources/red.png?raw=true" width=19 /> `red`  
-<img src="src/NoteBar.Core/Icons/Resources/orange.png?raw=true" width=19 /> `orange`  
-<img src="src/NoteBar.Core/Icons/Resources/yellow.png?raw=true" width=19 /> `yellow`  
-<img src="src/NoteBar.Core/Icons/Resources/green.png?raw=true" width=19 /> `green`  
-<img src="src/NoteBar.Core/Icons/Resources/cyan.png?raw=true" width=19 /> `cyan`  
-<img src="src/NoteBar.Core/Icons/Resources/blue.png?raw=true" width=19 /> `blue`  
-<img src="src/NoteBar.Core/Icons/Resources/purple.png?raw=true" width=19 /> `purple`  
-<img src="src/NoteBar.Core/Icons/Resources/black.png?raw=true" width=19 /> `black`  
-<img src="src/NoteBar.Core/Icons/Resources/question.png?raw=true" width=19 /> `question`  
-<img src="src/NoteBar.Core/Icons/Resources/exclamation.png?raw=true" width=19 /> `exclamation`  
+<img src="src/NoteBar.Core/Icons/Resources/white.png?raw=true" width=16 /> `white`  
+<img src="src/NoteBar.Core/Icons/Resources/red.png?raw=true" width=16 /> `red`  
+<img src="src/NoteBar.Core/Icons/Resources/orange.png?raw=true" width=16 /> `orange`  
+<img src="src/NoteBar.Core/Icons/Resources/yellow.png?raw=true" width=16 /> `yellow`  
+<img src="src/NoteBar.Core/Icons/Resources/green.png?raw=true" width=16 /> `green`  
+<img src="src/NoteBar.Core/Icons/Resources/cyan.png?raw=true" width=16 /> `cyan`  
+<img src="src/NoteBar.Core/Icons/Resources/blue.png?raw=true" width=16 /> `blue`  
+<img src="src/NoteBar.Core/Icons/Resources/purple.png?raw=true" width=16 /> `purple`  
+<img src="src/NoteBar.Core/Icons/Resources/black.png?raw=true" width=16 /> `black`  
+<img src="src/NoteBar.Core/Icons/Resources/question.png?raw=true" width=16 /> `question`  
+<img src="src/NoteBar.Core/Icons/Resources/exclamation.png?raw=true" width=16 /> `exclamation`  
 
 And one special command forces NoteBar to quit: `quit`
 
