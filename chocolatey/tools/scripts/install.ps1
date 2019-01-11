@@ -10,6 +10,9 @@ Remove-Item -Path "src" -Recurse -Force
 # Add NoteBar to PATH
 [Environment]::SetEnvironmentVariable("Path", "$env:Path;$NoteBarDir", [System.EnvironmentVariableTarget]::Machine)
 
+# Add EventSource for NoteBar logging
+[System.Diagnostics.EventLog]::CreateEventSource("NoteBar", "Application")
+
 # Get regasm path
 $dotnetPath = [System.Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()
 $RegasmPath = "$dotnetPath\RegAsm.exe"

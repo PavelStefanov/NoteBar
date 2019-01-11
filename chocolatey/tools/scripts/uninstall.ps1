@@ -18,3 +18,6 @@ Remove-Item -Path $NoteBarDir -Recurse -Force
 $Path=[Environment]::GetEnvironmentVariable("Path")
 $NewPath = ($Path.Split(";") | Where-Object { $_ -ne $NoteBarDir }) -join ";"
 [Environment]::SetEnvironmentVariable("Path", $NewPath, [System.EnvironmentVariableTarget]::Machine)
+
+# Delete EventSource of NoteBar logging
+[System.Diagnostics.EventLog]::DeleteEventSource("NoteBar")
