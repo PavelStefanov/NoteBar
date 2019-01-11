@@ -1,6 +1,6 @@
 # NoteBar: Windows taskbar toolbar indicators
 
-NoteBar is small indicators for Windows taskbar those can display a colored dot or custom icon.
+NoteBar is small indicators for Windows taskbar those can display a colored dot or a custom icon.
 
 NoteBar is a clone of [AnyBar](https://github.com/tonsky/AnyBar)
 
