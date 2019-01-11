@@ -1,2 +1,59 @@
-# NoteBar
-Windows taskbar toolbar status indicator
+# NoteBar: Windows taskbar toolbar indicators
+
+NoteBar is small indicators for Windows taskbar those can display a colored dot or custom icon.
+
+NoteBar is a clone of [AnyBar](https://github.com/tonsky/AnyBar)
+
+<img src="assets/screenshot.png?raw=true" />
+
+## Install
+
+You can install using [Chocolatey](https://chocolatey.org/)
+
+```powershell
+choco install notebar
+```
+
+## Usage
+
+To run NoteBar execute in console
+
+```powershell
+notebar
+```
+
+NoteBar is controlled via a UDP port (1738 by default). Send it a message and it will change a color:
+```powershell
+$byteBuffer = [System.Text.Encoding]::UTF8.GetBytes("black");
+(new-Object system.Net.Sockets.Udpclient($sourceudpport)).Send($byteBuffer, $byteBuffer.length, "localhost", 1738)
+```
+
+The following default commands change the style of the dot:
+
+<img src="src/NoteBar.Core/Icons/Resources/white.png?raw=true" width=19 /> `white`  
+<img src="src/NoteBar.Core/Icons/Resources/red.png?raw=true" width=19 /> `red`  
+<img src="src/NoteBar.Core/Icons/Resources/orange.png?raw=true" width=19 /> `orange`  
+<img src="src/NoteBar.Core/Icons/Resources/yellow.png?raw=true" width=19 /> `yellow`  
+<img src="src/NoteBar.Core/Icons/Resources/green.png?raw=true" width=19 /> `green`  
+<img src="src/NoteBar.Core/Icons/Resources/cyan.png?raw=true" width=19 /> `cyan`  
+<img src="src/NoteBar.Core/Icons/Resources/blue.png?raw=true" width=19 /> `blue`  
+<img src="src/NoteBar.Core/Icons/Resources/purple.png?raw=true" width=19 /> `purple`  
+<img src="src/NoteBar.Core/Icons/Resources/black.png?raw=true" width=19 /> `black`  
+<img src="src/NoteBar.Core/Icons/Resources/question.png?raw=true" width=19 /> `question`  
+<img src="src/NoteBar.Core/Icons/Resources/exclamation.png?raw=true" width=19 /> `exclamation`  
+
+And one special command forces NoteBar to quit: `quit`
+
+## Running multiple indicators
+
+You can run several indicators as long as they listen on different ports. Use `-p` or `--port` command line argument to change port:
+
+```powershell
+notebar -p 1738
+notebar -p 1739
+notebar -p 1740
+```
+
+## Custom icons
+
+NoteBar can detect and use local custom images stored in the `%APPDATA%\NoteBar` directory. E.g. if you have `%APPDATA%\NoteBar\square.png` icon, send `square` and it will be displayed. Icons should be 16×16 pixels.
