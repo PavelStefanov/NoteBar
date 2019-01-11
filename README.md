@@ -16,7 +16,7 @@ choco install notebar
 
 ## Usage
 
-To run NoteBar execute in console
+To run NoteBar execute in powershell
 
 ```powershell
 notebar
@@ -24,8 +24,8 @@ notebar
 
 NoteBar is controlled via a UDP port (1738 by default). Send it a message and it will change a color:
 ```powershell
-$byteBuffer = [System.Text.Encoding]::UTF8.GetBytes("black");
-(new-Object system.Net.Sockets.Udpclient($sourceudpport)).Send($byteBuffer, $byteBuffer.length, "localhost", 1738)
+$message = [System.Text.Encoding]::UTF8.GetBytes("black");
+(new-Object system.Net.Sockets.Udpclient("localhost", 1738)).Send($message, $message.length)
 ```
 
 The following default commands change the style of the dot:
