@@ -11,13 +11,16 @@ $RegasmPath = "$dotnetPath\RegAsm.exe"
 Stop-Process -ProcessName explorer
 Start-Sleep -s 2
 
-# Delete src
-Remove-Item -Path $NoteBarDir -Recurse -Force
+# Delete NoteBar AppData folder
+Remove-Item -Path "$env:APPDATA\NoteBar" -Recurse -Force
+
+# Delete EventSource of NoteBar logging
+[System.Diagnostics.EventLog]::DeleteEventSource("NoteBar")
 
 # Delete notebar from PATH
 $Path=[Environment]::GetEnvironmentVariable("Path")
 $NewPath = ($Path.Split(";") | Where-Object { $_ -ne $NoteBarDir }) -join ";"
 [Environment]::SetEnvironmentVariable("Path", $NewPath, [System.EnvironmentVariableTarget]::Machine)
 
-# Delete EventSource of NoteBar logging
-[System.Diagnostics.EventLog]::DeleteEventSource("NoteBar")
+# Delete src
+Remove-Item -Path $NoteBarDir -Recurse -Force

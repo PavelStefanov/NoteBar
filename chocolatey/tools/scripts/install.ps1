@@ -13,6 +13,9 @@ Remove-Item -Path "src" -Recurse -Force
 # Add EventSource for NoteBar logging
 [System.Diagnostics.EventLog]::CreateEventSource("NoteBar", "Application")
 
+# Add NoteBar folder for local icons
+New-Item -ItemType Directory -Path "$env:APPDATA\NoteBar"
+
 # Get regasm path
 $dotnetPath = [System.Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()
 $RegasmPath = "$dotnetPath\RegAsm.exe"
