@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package
-    xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
     <metadata>
         <id>notebar</id>
         <title>NoteBar</title>
@@ -11,10 +10,12 @@
         <projectUrl>https://github.com/PavelStefanov/NoteBar</projectUrl>
         <packageSourceUrl>https://github.com/PavelStefanov/NoteBar</packageSourceUrl>
         <projectSourceUrl>https://github.com/PavelStefanov/NoteBar</projectSourceUrl>
-        <copyright>2018</copyright>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <tags>notebar anybar somebar</tags>
-        <description>Windows taskbar toolbar status indicator</description>
+        <description>Windows taskbar toolbar indicators</description>
+        <summary>
+            NoteBar is small indicators for Windows taskbar those can display a colored dot or custom icon.
+        </summary>
         <dependencies>
             <dependency id="dotnet4.7.1" version="4.7.2558.0" />
         </dependencies>
