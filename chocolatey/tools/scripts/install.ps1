@@ -3,18 +3,24 @@
 $NoteBarDir = "$env:Programfiles\NoteBar"
 
 # Copy src
-New-Item -ItemType Directory -Path $NoteBarDir
+if (!(Test-Path -Path $NoteBarDir )) {
+    New-Item -ItemType Directory -Path $NoteBarDir    
+}
 Get-ChildItem -Path "src" | Copy-Item -Destination $NoteBarDir
-Remove-Item -Path "src" -Recurse -Force
 
 # Add NoteBar to PATH
 [Environment]::SetEnvironmentVariable("Path", "$env:Path;$NoteBarDir", [System.EnvironmentVariableTarget]::Machine)
 
 # Add EventSource for NoteBar logging
-[System.Diagnostics.EventLog]::CreateEventSource("NoteBar", "Application")
+if (!([System.Diagnostics.EventLog]::SourceExists("NoteBar"))) {
+    [System.Diagnostics.EventLog]::CreateEventSource("NoteBar", "Application")    
+}
 
 # Add NoteBar folder for local icons
-New-Item -ItemType Directory -Path "$env:APPDATA\NoteBar"
+$NoteBarAppDataDir = "$env:APPDATA\NoteBar"
+if (!(Test-Path -Path $NoteBarAppDataDir )) {
+    New-Item -ItemType Directory -Path $NoteBarAppDataDir
+}
 
 # Get regasm path
 $dotnetPath = [System.Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()
