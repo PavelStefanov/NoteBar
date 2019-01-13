@@ -24,8 +24,8 @@ notebar
 
 NoteBar is controlled via a UDP port (1738 by default). Send it a message and it will change a color:
 ```powershell
-$message = [System.Text.Encoding]::UTF8.GetBytes("black");
-(new-Object system.Net.Sockets.Udpclient("localhost", 1738)).Send($message, $message.length)
+$Message = [System.Text.Encoding]::UTF8.GetBytes("black");
+(New-Object System.Net.Sockets.UDPClient).Send($Message, $Message.length, "localhost", 1738)
 ```
 
 The following default commands change the style of the dot:
