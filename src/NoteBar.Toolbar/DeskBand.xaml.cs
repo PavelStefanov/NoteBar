@@ -7,7 +7,7 @@ namespace NoteBar.Toolbar
 {
     [ComVisible(true)]
     [Guid(Constants.NoteBarGuid)]
-    [CSDeskBandRegistration(Name = "NoteBar", ShowDeskBand = true)]
+    [CSDeskBandRegistration(Name = "NoteBar")]
     public partial class DeskBand
     {
         private DeskBandViewModel ViewModel { get; }
