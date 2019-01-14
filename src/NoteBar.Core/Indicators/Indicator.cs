@@ -58,7 +58,7 @@ namespace NoteBar.Core.Indicators
             var icon = IconsService.FindIcon(message);
             if (icon == null)
             {
-                EventLog.WriteEntry("NoteBar", $"Cannot find '{icon}' icon", EventLogEntryType.Warning);
+                EventLog.WriteEntry("NoteBar", $"Cannot find '{message}' icon", EventLogEntryType.Warning);
                 icon = IconsService.FindIcon("question");
             }
 
