@@ -16,11 +16,14 @@ choco install notebar
 
 ## Usage
 
-To run NoteBar execute in powershell
+First you must launch NoteBar. To run NoteBar right-click the taskbar, in the pop-up menu that appears, click Toolbars and then click NoteBar.
+
+Next you can run indicator by execute in powershell
 
 ```powershell
 notebar
 ```
+*If NoteBar is not launched you'll see a dialog box to add NoteBar on your taskbar.*
 
 NoteBar is controlled via a UDP port (1738 by default). Send it a message and it will change a color:
 ```powershell
