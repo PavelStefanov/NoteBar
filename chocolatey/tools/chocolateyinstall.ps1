@@ -12,7 +12,7 @@ $NoteBarDir = "$env:Programfiles\NoteBar"
 if (!(Test-Path -Path $NoteBarDir )) {
     New-Item -ItemType Directory -Path $NoteBarDir    
 }
-Get-ChildItem -Path "src" | Copy-Item -Destination $NoteBarDir
+Get-ChildItem -Path "$toolsDir\src" | Copy-Item -Destination $NoteBarDir
 
 # Add NoteBar to PATH
 [Environment]::SetEnvironmentVariable("Path", "$env:Path;$NoteBarDir", [System.EnvironmentVariableTarget]::Machine)
