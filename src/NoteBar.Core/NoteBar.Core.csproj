@@ -70,11 +70,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\NoteBar.snk">
-      <Link>NoteBar.snk</Link>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Icons\Resources\black.png" />
     <Resource Include="Icons\Resources\blue.png" />
     <Resource Include="Icons\Resources\cyan.png" />

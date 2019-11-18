@@ -3,7 +3,7 @@
     <metadata>
         <id>notebar</id>
         <title>NoteBar</title>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
         <owners>Pavel Stefanov</owners>
         <authors>Pavel Stefanov</authors>
         <licenseUrl>https://github.com/PavelStefanov/NoteBar/blob/master/LICENSE</licenseUrl>
@@ -16,9 +16,6 @@
         <summary>
             NoteBar is small indicators for Windows taskbar those can display a colored dot or custom icon.
         </summary>
-        <dependencies>
-            <dependency id="dotnet4.7.1" version="4.7.2558.0" />
-        </dependencies>
     </metadata>
     <files>
         <file src="tools\**" target="tools" />

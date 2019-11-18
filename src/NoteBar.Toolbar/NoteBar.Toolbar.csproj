@@ -70,9 +70,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\NoteBar.snk">
-      <Link>NoteBar.snk</Link>
-    </None>
     <None Include="Test\registre.ps1" />
     <None Include="Test\unregistre.ps1" />
     <None Include="packages.config" />
